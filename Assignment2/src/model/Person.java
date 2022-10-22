@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author user
@@ -11,12 +14,16 @@ package model;
 public class Person {
     String userName;
     String password;
-    String user_type;
+    String userType;
     String name;
     int age;
     String gender;
     String address;
     String city;
+    static public List<Person> persondirectory= new ArrayList<Person>();
+
+     public Person() {
+    }
     
     public String getUserName() {
         return userName;
@@ -24,6 +31,30 @@ public class Person {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
@@ -58,28 +89,33 @@ public class Person {
         this.city = city;
     }
 
-    public String getUser_type() {
-        return user_type;
+    public static List<Person> getPersondirectory() {
+        return persondirectory;
     }
 
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
+    public static void setPersondirectory(List<Person> persondirectory) {
+        Person.persondirectory = persondirectory;
     }
 
-    public String getPassword() {
-        return password;
+    @Override
+    public String toString() {
+        return "Person{" + "userName=" + userName + ", password=" + password + ", userType=" + userType + ", name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address + ", city=" + city + '}';
     }
-
-    public void setPassword(String password) {
+    //Constructor
+    public Person(String userName, String password, String userType, String name, int age, String gender, String address, String city) {
+        this.userName = userName;
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+        this.userType = userType;
         this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.address = address;
+        this.city = city;
     }
-    
+    public void  addnewperson(String userName, String password, String userType, String name, int age, String gender, String address, String city) 
+    {
+        persondirectory.add(new Person(userName, password, userType,name,age,gender,address,city));
+        //return persondirectory;
+           }
+
 }
