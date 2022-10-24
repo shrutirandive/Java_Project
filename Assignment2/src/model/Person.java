@@ -11,6 +11,7 @@ import java.util.List;
  *
  * @author user
  */
+
 public class Person {
     String userName;
     String password;
@@ -20,9 +21,9 @@ public class Person {
     String gender;
     String address;
     String city;
-    static public List<Person> persondirectory= new ArrayList<Person>();
-
-     public Person() {
+    static public List<Person> personDirectory= new ArrayList<Person>();
+       
+    public Person() {
     }
     
     public String getUserName() {
@@ -89,12 +90,12 @@ public class Person {
         this.city = city;
     }
 
-    public static List<Person> getPersondirectory() {
-        return persondirectory;
+    public static List<Person> getPersonDirectory() {
+        return personDirectory;
     }
 
-    public static void setPersondirectory(List<Person> persondirectory) {
-        Person.persondirectory = persondirectory;
+    public static void setPersonDirectory(List<Person> personDirectory) {
+        Person.personDirectory = personDirectory;
     }
 
     @Override
@@ -114,8 +115,10 @@ public class Person {
     }
     public void  addnewperson(String userName, String password, String userType, String name, int age, String gender, String address, String city) 
     {
-        persondirectory.add(new Person(userName, password, userType,name,age,gender,address,city));
+        
+        personDirectory.add(new Person(userName, password, userType,name,age,gender,address,city));
+        
         //return persondirectory;
            }
-
+    
 }

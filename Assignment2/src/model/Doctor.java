@@ -4,28 +4,25 @@
  */
 package model;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author user
  */
-public class Patient {
+public class Doctor {
     String name;
     int age;
     String gender;
     String address;
     String city;
+    static public List<Doctor> doctorDirectory= new ArrayList<Doctor>();
     
-    static public List<Patient> patientDirectory= new ArrayList<Patient>();
-    
-//    private VitalSigns vitalsigns;
-    
-    public Patient() {
+    public Doctor() {
     }
-    
-    public Patient(String name, int age, String gender, String address, String city) {
+
+    public Doctor(String name, int age, String gender, String address, String city) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -35,7 +32,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address + ", city=" + city + '}';
+        return "Doctor{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address + ", city=" + city + '}';
     }
 
     public String getName() {
@@ -78,22 +75,21 @@ public class Patient {
         this.city = city;
     }
 
-    public static List<Patient> getPatientDirectory() {
-        return patientDirectory;
+    public static List<Doctor> getDoctorDirectory() {
+        return doctorDirectory;
     }
 
-    public static void setPatientDirectory(List<Patient> patientDirectory) {
-        Patient.patientDirectory = patientDirectory;
+    public static void setDoctorDirectory(List<Doctor> doctorDirectory) {
+        Doctor.doctorDirectory = doctorDirectory;
     }
     
-    
-    public void  addNewPatients(String name, int age, String gender, String address, String city) 
+
+    public void  addNewDoctors(String name, int age, String gender, String address, String city) 
     {
 //        vitalsigns = new VitalSigns();
 //        List<VitalSigns> vitalsignsList = vitalsigns.getList();
         
-        patientDirectory.add(new Patient(name, age, gender, address, city));
-        System.out.println("Patient Added Successfully !!");
+        doctorDirectory.add(new Doctor(name, age, gender, address, city));
+        System.out.println("Doctor Added Successfully !!");
     }
-    
 }
