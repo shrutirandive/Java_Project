@@ -13,26 +13,30 @@ import java.util.List;
  */
 public class Doctor {
     String name;
-    int age;
     String gender;
-    String address;
+    String physicianType;
+    String house;
     String city;
+    //hospital name can be extracted from hospital admin profile also instaed of taking from textbox
+    String hospitalName; 
     static public List<Doctor> doctorDirectory= new ArrayList<Doctor>();
     
     public Doctor() {
     }
 
-    public Doctor(String name, int age, String gender, String address, String city) {
+    public Doctor(String name, String gender, String physicianType, String house, String city, String hospitalName) {
         this.name = name;
-        this.age = age;
         this.gender = gender;
-        this.address = address;
+        this.physicianType = physicianType;
+        this.house = house;
         this.city = city;
+        this.hospitalName = hospitalName;
     }
 
     @Override
     public String toString() {
-        return "Doctor{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address + ", city=" + city + '}';
+//        return "Doctor{" + "name=" + name + ", gender=" + gender + ", physicianType=" + physicianType + ", house=" + house + ", city=" + city + ", hospitalName=" + hospitalName + '}';
+            return name;
     }
 
     public String getName() {
@@ -43,14 +47,6 @@ public class Doctor {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -59,12 +55,20 @@ public class Doctor {
         this.gender = gender;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPhysicianType() {
+        return physicianType;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPhysicianType(String physicianType) {
+        this.physicianType = physicianType;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public void setHouse(String house) {
+        this.house = house;
     }
 
     public String getCity() {
@@ -75,6 +79,14 @@ public class Doctor {
         this.city = city;
     }
 
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
     public static List<Doctor> getDoctorDirectory() {
         return doctorDirectory;
     }
@@ -83,13 +95,18 @@ public class Doctor {
         Doctor.doctorDirectory = doctorDirectory;
     }
     
-
-    public void  addNewDoctors(String name, int age, String gender, String address, String city) 
+    public void  addNewDoctors(String name, String gender, String physicianType, String house, String city, String hospitalName) 
     {
-//        vitalsigns = new VitalSigns();
-//        List<VitalSigns> vitalsignsList = vitalsigns.getList();
-        
-        doctorDirectory.add(new Doctor(name, age, gender, address, city));
+        doctorDirectory.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
+        System.out.println(doctorDirectory.size()-1);
         System.out.println("Doctor Added Successfully !!");
+    }
+    
+    public void updateDoctor(Doctor doc, int docIndex){
+        doctorDirectory.set(docIndex, doc);
+    }
+
+    public void deleteDoctor(Doctor doc) {
+        doctorDirectory.remove(doc);
     }
 }

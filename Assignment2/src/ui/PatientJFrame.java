@@ -370,7 +370,7 @@ public class PatientJFrame extends javax.swing.JFrame {
             Object[] row = new Object[11];
             row[0] = doc;
             row[1] = doc.getName();
-            row[2] = doc.getAge();
+//            row[2] = doc.getAge();
             row[3] = doc.getGender();
             
             model.addRow(row);

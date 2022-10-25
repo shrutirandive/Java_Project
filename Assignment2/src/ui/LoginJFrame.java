@@ -147,8 +147,8 @@ public class LoginJFrame extends javax.swing.JFrame {
                     patient.setVisible(true);
                 }
                 else if(per.getUserType().equalsIgnoreCase("Doctor")){
-                    DoctorJFrame doctor= new DoctorJFrame();
-                    doctor.setVisible(true);
+//                    AddDoctorJFrame doctor= new AddDoctorJFrame();
+//                    doctor.setVisible(true);
                 }
                 else
                 {

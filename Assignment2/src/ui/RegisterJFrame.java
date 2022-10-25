@@ -230,7 +230,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
             pat.addNewPatients(name, age, gender, address, city);
         }
         else if(usertype.equals("Doctor")){
-            doc.addNewDoctors(name, age, gender, address, city);
+//            doc.addNewDoctors(name, gender, address, city);
         }
         else{
             System.out.println("not pateint or doctor");
