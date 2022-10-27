@@ -63,8 +63,18 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         });
 
         btnAddPatient.setText("Add Patients");
+        btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPatientActionPerformed(evt);
+            }
+        });
 
         btnViewPatient.setText("View Patients");
+        btnViewPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPatientActionPerformed(evt);
+            }
+        });
 
         btnAddHospitalAdmin.setText("Add Hospital Admin");
         btnAddHospitalAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +98,11 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         });
 
         btnViewCommunityAdmin.setText("View Community Admin");
+        btnViewCommunityAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCommunityAdminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,11 +118,9 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                     .addComponent(btnAddHospitalAdmin)
                     .addComponent(btnAddDoctors)
                     .addComponent(btnViewHospitalAdmin)
-                    .addComponent(btnAddCommunityAdmin))
+                    .addComponent(btnAddCommunityAdmin)
+                    .addComponent(btnViewCommunityAdmin))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnViewCommunityAdmin)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,9 +139,9 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                 .addComponent(btnViewHospitalAdmin)
                 .addGap(33, 33, 33)
                 .addComponent(btnAddCommunityAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(btnViewCommunityAdmin)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(31, 31, 31))
         );
@@ -190,11 +203,29 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
 
     private void btnViewHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHospitalAdminActionPerformed
         // TODO add your handling code here:
+        ViewHospitalAdminJPanel viewHospitalAdmin = new ViewHospitalAdminJPanel();
+        splitPane.setRightComponent(viewHospitalAdmin);
     }//GEN-LAST:event_btnViewHospitalAdminActionPerformed
 
     private void btnAddCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCommunityAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddCommunityAdminActionPerformed
+
+    private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
+        // TODO add your handling code here:
+        CreatePatientJPanel createPatient = new CreatePatientJPanel();
+        splitPane.setRightComponent(createPatient);
+    }//GEN-LAST:event_btnAddPatientActionPerformed
+
+    private void btnViewCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCommunityAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewCommunityAdminActionPerformed
+
+    private void btnViewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientActionPerformed
+        // TODO add your handling code here:
+        ViewPatientJPanel viewPatient = new ViewPatientJPanel();
+        splitPane.setRightComponent(viewPatient);
+    }//GEN-LAST:event_btnViewPatientActionPerformed
 
     /**
      * @param args the command line arguments

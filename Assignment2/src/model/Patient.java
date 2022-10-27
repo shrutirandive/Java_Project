@@ -95,5 +95,11 @@ public class Patient {
         patientDirectory.add(new Patient(name, age, gender, house, city));
         System.out.println("Patient Added Successfully !!");
     }
-    
+    public void updatePatient(Patient patient, int patientIndex){
+        patientDirectory.set(patientIndex, patient);
+    }
+
+    public void deletePatient(Patient patient) {
+        patientDirectory.remove(patient);
+    }
 }

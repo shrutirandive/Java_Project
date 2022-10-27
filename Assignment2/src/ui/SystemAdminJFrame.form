@@ -58,12 +58,9 @@
                           <Component id="btnAddDoctors" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btnViewHospitalAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btnAddCommunityAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnViewCommunityAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnViewCommunityAdmin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -84,9 +81,9 @@
                       <Component id="btnViewHospitalAdmin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnAddCommunityAdmin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnViewCommunityAdmin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
@@ -122,11 +119,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Patients"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddPatientActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnViewPatient">
               <Properties>
                 <Property name="text" type="java.lang.String" value="View Patients"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewPatientActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAddHospitalAdmin">
               <Properties>
@@ -156,6 +159,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="View Community Admin"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewCommunityAdminActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
