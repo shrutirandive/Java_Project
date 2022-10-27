@@ -11,13 +11,13 @@ import model.HospitalAdmin;
  *
  * @author user
  */
-public class AddHospitalAdminJPanel extends javax.swing.JPanel {
+public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AddHospitalAdminJPanel
      */
     HospitalAdmin hospitalAdmin = new HospitalAdmin();
-    public AddHospitalAdminJPanel() {
+    public CreateHospitalAdminJPanel() {
         initComponents();
     }
 

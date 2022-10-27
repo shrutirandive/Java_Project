@@ -5,7 +5,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -20,6 +22,9 @@ public class Doctor {
     //hospital name can be extracted from hospital admin profile also instaed of taking from textbox
     String hospitalName; 
     static public List<Doctor> doctorDirectory= new ArrayList<Doctor>();
+//    static public List<Doctor> doctorInHospitalDirectory= new ArrayList<Doctor>();
+    static public Set<Doctor> doctorInHospitalDirectory = new HashSet<Doctor>();
+    static public List<Doctor> encounterHistory= new ArrayList<Doctor>();
     
     public Doctor() {
     }
@@ -94,6 +99,22 @@ public class Doctor {
     public static void setDoctorDirectory(List<Doctor> doctorDirectory) {
         Doctor.doctorDirectory = doctorDirectory;
     }
+
+    public static Set<Doctor> getDoctorInHospitalDirectory() {
+        return doctorInHospitalDirectory;
+    }
+
+    public static void setDoctorInHospitalDirectory(Set<Doctor> doctorInHospitalDirectory) {
+        Doctor.doctorInHospitalDirectory = doctorInHospitalDirectory;
+    }
+
+    public static List<Doctor> getEncounterHistory() {
+        return encounterHistory;
+    }
+
+    public static void setEncounterHistory(List<Doctor> encounterHistory) {
+        Doctor.encounterHistory = encounterHistory;
+    }
     
     public void  addNewDoctors(String name, String gender, String physicianType, String house, String city, String hospitalName) 
     {
@@ -108,5 +129,14 @@ public class Doctor {
 
     public void deleteDoctor(Doctor doc) {
         doctorDirectory.remove(doc);
+    }
+    public void addDoctorInHospital(String name, String gender, String physicianType, String house, String city, String hospitalName){
+//        Doctor docHosp = new Doctor();
+        doctorInHospitalDirectory.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
+        System.out.println("Doctor Added Successfully in Hospital");
+        System.out.println(doctorInHospitalDirectory.size()-1);   
+    }
+    public void patientAddDoctors(String name, String gender, String physicianType, String hospitalName){
+        encounterHistory.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
     }
 }

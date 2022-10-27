@@ -4,30 +4,19 @@
  */
 package ui;
 
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import model.Doctor;
-import model.Person;
-import static model.Person.personDirectory;
-import model.VitalSigns;
-
 /**
  *
  * @author user
  */
-    
 public class PatientJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form PatientJFrame
      */
-    VitalSigns vs = new VitalSigns();
-    
     public PatientJFrame() {
         initComponents();
-        
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,69 +26,28 @@ public class PatientJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         btnProfile = new javax.swing.JButton();
-        btnVitalSigns = new javax.swing.JButton();
-        btnDoctors = new javax.swing.JButton();
-        btnEncounterHistory = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        panelProfile = new javax.swing.JPanel();
-        lblTitleProfile = new javax.swing.JLabel();
-        lblProfile = new javax.swing.JLabel();
-        panelVitalSigns = new javax.swing.JPanel();
-        lblTitleVitalSigns = new javax.swing.JLabel();
-        lblTemp = new javax.swing.JLabel();
-        txtBloodPressure = new javax.swing.JTextField();
-        lblBloodPressure = new javax.swing.JLabel();
-        txtTemp = new javax.swing.JTextField();
-        lblWeight = new javax.swing.JLabel();
-        txtWeight = new javax.swing.JTextField();
-        btnSaveVitalSigns = new javax.swing.JButton();
-        lblHeight = new javax.swing.JLabel();
-        txtHeight = new javax.swing.JTextField();
-        panelDoctors = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblDoctors = new javax.swing.JTable();
-        panelEncounterHistory = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnProfile.setText("Profile");
-        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+
+        jButton1.setText("Doctor List");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProfileActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        btnVitalSigns.setText("Vital Signs");
-        btnVitalSigns.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Encounter History");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVitalSignsActionPerformed(evt);
-            }
-        });
-
-        btnDoctors.setText("Doctors");
-        btnDoctors.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDoctorsActionPerformed(evt);
-            }
-        });
-
-        btnEncounterHistory.setText("Encouter History");
-        btnEncounterHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEncounterHistoryActionPerformed(evt);
-            }
-        });
-
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -108,274 +56,75 @@ public class PatientJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnProfile)
-                    .addComponent(btnVitalSigns)
-                    .addComponent(btnDoctors)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(btnProfile))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton1)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jButton1)
+                .addGap(40, 40, 40)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addComponent(btnProfile)
+                .addGap(80, 80, 80))
+        );
+
+        splitPane.setLeftComponent(jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 574, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 371, Short.MAX_VALUE)
+        );
+
+        splitPane.setRightComponent(jPanel2);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnEncounterHistory)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnDoctors, btnEncounterHistory, btnProfile, btnVitalSigns});
-
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(btnProfile)
-                .addGap(47, 47, 47)
-                .addComponent(btnVitalSigns)
-                .addGap(47, 47, 47)
-                .addComponent(btnDoctors)
-                .addGap(47, 47, 47)
-                .addComponent(btnEncounterHistory)
-                .addGap(47, 47, 47)
-                .addComponent(btnBack)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnDoctors, btnEncounterHistory, btnProfile, btnVitalSigns});
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 400));
-
-        lblTitleProfile.setText("PATIENT PROFILE");
-
-        lblProfile.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-
-        javax.swing.GroupLayout panelProfileLayout = new javax.swing.GroupLayout(panelProfile);
-        panelProfile.setLayout(panelProfileLayout);
-        panelProfileLayout.setHorizontalGroup(
-            panelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelProfileLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(panelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitleProfile)
-                    .addComponent(lblProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(374, Short.MAX_VALUE))
-        );
-        panelProfileLayout.setVerticalGroup(
-            panelProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelProfileLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(lblTitleProfile)
-                .addGap(29, 29, 29)
-                .addComponent(lblProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab1", panelProfile);
-
-        lblTitleVitalSigns.setText("ADD VITAL SIGNS");
-
-        lblTemp.setText("Temperature");
-
-        lblBloodPressure.setText("Blood Pressure");
-
-        lblWeight.setText("Weight");
-
-        btnSaveVitalSigns.setText("SAVE");
-        btnSaveVitalSigns.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveVitalSignsActionPerformed(evt);
-            }
-        });
-
-        lblHeight.setText("Height");
-
-        javax.swing.GroupLayout panelVitalSignsLayout = new javax.swing.GroupLayout(panelVitalSigns);
-        panelVitalSigns.setLayout(panelVitalSignsLayout);
-        panelVitalSignsLayout.setHorizontalGroup(
-            panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelVitalSignsLayout.createSequentialGroup()
-                .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panelVitalSignsLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(lblTitleVitalSigns, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelVitalSignsLayout.createSequentialGroup()
-                            .addGap(84, 84, 84)
-                            .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(lblWeight)
-                                .addComponent(lblHeight))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtBloodPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                .addComponent(txtTemp, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                .addComponent(txtWeight, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                                .addComponent(txtHeight))))
-                    .addGroup(panelVitalSignsLayout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(btnSaveVitalSigns)))
-                .addContainerGap(289, Short.MAX_VALUE))
-        );
-        panelVitalSignsLayout.setVerticalGroup(
-            panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelVitalSignsLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lblTitleVitalSigns)
-                .addGap(36, 36, 36)
-                .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblWeight)
-                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(panelVitalSignsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHeight)
-                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(btnSaveVitalSigns)
-                .addContainerGap(155, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab2", panelVitalSigns);
-
-        jLabel2.setText("LIST OF DOCTORS");
-
-        tblDoctors.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblDoctors);
-
-        javax.swing.GroupLayout panelDoctorsLayout = new javax.swing.GroupLayout(panelDoctors);
-        panelDoctors.setLayout(panelDoctorsLayout);
-        panelDoctorsLayout.setHorizontalGroup(
-            panelDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDoctorsLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(panelDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(162, Short.MAX_VALUE))
-        );
-        panelDoctorsLayout.setVerticalGroup(
-            panelDoctorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDoctorsLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab3", panelDoctors);
-
-        jLabel3.setText("Encounter History");
-
-        javax.swing.GroupLayout panelEncounterHistoryLayout = new javax.swing.GroupLayout(panelEncounterHistory);
-        panelEncounterHistory.setLayout(panelEncounterHistoryLayout);
-        panelEncounterHistoryLayout.setHorizontalGroup(
-            panelEncounterHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEncounterHistoryLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(400, Short.MAX_VALUE))
-        );
-        panelEncounterHistoryLayout.setVerticalGroup(
-            panelEncounterHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelEncounterHistoryLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabel3)
-                .addContainerGap(398, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab4", panelEncounterHistory);
-
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(118, -40, -1, 480));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public void getPatientProfile(List<Person> p){
-        for(Person per: personDirectory){
-//            String username = per.getName()
-            String txt = "<html>";
-            txt += "<br>"+"Name- "+per.getName()+"<br>"+"Age- "+per.getAge();
-            txt += "<br>"+"Gender- "+per.getGender()+"<br>"+"Age- "+per.getAge();
-            txt += "<br>"+"Addres- "+per.getAddress()+"<br>"+"City- "+per.getCity()+"</html>";
-            lblProfile.setText(txt);
-        }
-    }
-    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(0);
-        getPatientProfile(personDirectory);
-    }//GEN-LAST:event_btnProfileActionPerformed
 
-    private void btnVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVitalSignsActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_btnVitalSignsActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorsActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_btnDoctorsActionPerformed
+        DoctorListJPanel doctorList = new DoctorListJPanel();
+        splitPane.setRightComponent(doctorList);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnEncounterHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncounterHistoryActionPerformed
-        // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(3);
-    }//GEN-LAST:event_btnEncounterHistoryActionPerformed
-
-    private void btnSaveVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveVitalSignsActionPerformed
-        // TODO add your handling code here:
-        double temp = Double.parseDouble(txtTemp.getText());
-        double bloodPressure = Double.parseDouble(txtBloodPressure.getText());
-        int weight = Integer.parseInt(txtWeight.getText());
-        int height = Integer.parseInt(txtHeight.getText());
-        
-        vs.addNewVitalSigns(temp, bloodPressure, weight, height);
-        JOptionPane.showMessageDialog(this,"Vital signs added. ");
-    }//GEN-LAST:event_btnSaveVitalSignsActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        PatientJFrame patient = new PatientJFrame();
-        patient.setVisible(false);
-        
-        NewJFrame newFrame = new NewJFrame();
-        newFrame.setVisible(true);
-        
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    // To Display list of DOctors in Patient JFrame
-    private void populateTable() {
-        
-        DefaultTableModel model = (DefaultTableModel) tblDoctors.getModel();
-        model.setRowCount(0);
-        
-        for (Doctor doc : Doctor.getDoctorDirectory()){
-            
-            //--array of objects with 11 members--
-            Object[] row = new Object[11];
-            row[0] = doc;
-            row[1] = doc.getName();
-//            row[2] = doc.getAge();
-            row[3] = doc.getGender();
-            
-            model.addRow(row);
-        }
-    }
     /**
      * @param args the command line arguments
      */
@@ -412,32 +161,11 @@ public class PatientJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnDoctors;
-    private javax.swing.JButton btnEncounterHistory;
     private javax.swing.JButton btnProfile;
-    private javax.swing.JButton btnSaveVitalSigns;
-    private javax.swing.JButton btnVitalSigns;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblBloodPressure;
-    private javax.swing.JLabel lblHeight;
-    private javax.swing.JLabel lblProfile;
-    private javax.swing.JLabel lblTemp;
-    private javax.swing.JLabel lblTitleProfile;
-    private javax.swing.JLabel lblTitleVitalSigns;
-    private javax.swing.JLabel lblWeight;
-    private javax.swing.JPanel panelDoctors;
-    private javax.swing.JPanel panelEncounterHistory;
-    private javax.swing.JPanel panelProfile;
-    private javax.swing.JPanel panelVitalSigns;
-    private javax.swing.JTable tblDoctors;
-    private javax.swing.JTextField txtBloodPressure;
-    private javax.swing.JTextField txtHeight;
-    private javax.swing.JTextField txtTemp;
-    private javax.swing.JTextField txtWeight;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

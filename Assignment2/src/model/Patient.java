@@ -15,27 +15,27 @@ public class Patient {
     String name;
     int age;
     String gender;
-    String address;
+    String house;
     String city;
     
     static public List<Patient> patientDirectory= new ArrayList<Patient>();
-    
+   
 //    private VitalSigns vitalsigns;
     
     public Patient() {
     }
     
-    public Patient(String name, int age, String gender, String address, String city) {
+    public Patient(String name, int age, String gender, String house, String city) {
         this.name = name;
         this.age = age;
         this.gender = gender;
-        this.address = address;
+        this.house = house;
         this.city = city;
     }
 
     @Override
     public String toString() {
-        return "Patient{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address + ", city=" + city + '}';
+        return "Patient{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", house=" + house + ", city=" + city + '}';
     }
 
     public String getName() {
@@ -62,12 +62,12 @@ public class Patient {
         this.gender = gender;
     }
 
-    public String getAddress() {
-        return address;
+    public String getHouse() {
+        return house;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setHouse(String house) {
+        this.house = house;
     }
 
     public String getCity() {
@@ -87,12 +87,12 @@ public class Patient {
     }
     
     
-    public void  addNewPatients(String name, int age, String gender, String address, String city) 
+    public void  addNewPatients(String name, int age, String gender, String house, String city) 
     {
 //        vitalsigns = new VitalSigns();
 //        List<VitalSigns> vitalsignsList = vitalsigns.getList();
         
-        patientDirectory.add(new Patient(name, age, gender, address, city));
+        patientDirectory.add(new Patient(name, age, gender, house, city));
         System.out.println("Patient Added Successfully !!");
     }
     

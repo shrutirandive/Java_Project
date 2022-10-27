@@ -11,13 +11,13 @@ import model.Doctor;
  *
  * @author user
  */
-public class AddDoctorJPanel extends javax.swing.JPanel {
+public class CreateDoctorJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AddDoctorJPanel
      */
     Doctor doctor = new Doctor();
-    public AddDoctorJPanel() {
+    public CreateDoctorJPanel() {
         initComponents();
     }
 

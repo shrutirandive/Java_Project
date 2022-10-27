@@ -238,10 +238,10 @@ public class RegisterJFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,"New " +usertype + " created successfully");
         
         
-        LoginJFrame login = new LoginJFrame();
-        login.setVisible(true);
-        RegisterJFrame register = new RegisterJFrame();
-        register.setVisible(false);
+//        LoginJFrame login = new LoginJFrame();
+//        login.setVisible(true);
+//        RegisterJFrame register = new RegisterJFrame();
+//        register.setVisible(false);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void comboBoxUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxUserTypeActionPerformed
@@ -253,7 +253,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
         RegisterJFrame register = new RegisterJFrame();
         register.dispose();
         
-        NewJFrame newFrame = new NewJFrame();
+        MainJFrame newFrame = new MainJFrame();
         newFrame.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
