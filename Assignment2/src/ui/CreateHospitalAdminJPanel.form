@@ -45,7 +45,7 @@
                               <Component id="lblName" linkSize="2" min="-2" pref="114" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                               <Component id="txtName" linkSize="4" min="-2" pref="106" max="-2" attributes="0"/>
-                              <EmptySpace pref="641" max="32767" attributes="0"/>
+                              <EmptySpace pref="241" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">

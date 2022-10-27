@@ -6,6 +6,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 import model.Doctor;
+import model.Person;
 
 /**
  *
@@ -16,6 +17,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddDoctorJPanel
      */
+    Person person = new Person();
     Doctor doctor = new Doctor();
     public CreateDoctorJPanel() {
         initComponents();
@@ -100,7 +102,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(207, 207, 207)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(618, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxGender, txtPhysicianType});
@@ -140,6 +142,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        
         String name = txtName.getText();
         String gender = (String) comboBoxGender.getSelectedItem();
         String physicianType = txtPhysicianType.getText();
@@ -149,6 +152,14 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         
         doctor.addNewDoctors(name, gender, physicianType, house, city, hospitalName);
         
+        String username = name;
+        String password = name;
+        String usertype = "doctor";
+        System.out.println("=======CreateDoctorJPanel================="+username+"=="+password+"=="+usertype);
+        person.addNewPerson(username, password, usertype, name, ABORT, gender, house, city, physicianType, hospitalName);
+        for(Person per: Person.getPersonDirectory()){
+            System.out.println(per.getName()+per.getPassword()+per.getCity());
+        }
         JOptionPane.showMessageDialog(this, "Doctor added successfuly");
         
     }//GEN-LAST:event_btnSaveActionPerformed

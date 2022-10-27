@@ -312,7 +312,7 @@ public class PatientFrame extends javax.swing.JFrame {
             String txt = "<html>";
             txt += "<br>"+"Name- "+per.getName()+"<br>"+"Age- "+per.getAge();
             txt += "<br>"+"Gender- "+per.getGender()+"<br>"+"Age- "+per.getAge();
-            txt += "<br>"+"Addres- "+per.getAddress()+"<br>"+"City- "+per.getCity()+"</html>";
+            txt += "<br>"+"House- "+per.getHouse()+"<br>"+"City- "+per.getCity()+"</html>";
             lblProfile.setText(txt);
         }
     }

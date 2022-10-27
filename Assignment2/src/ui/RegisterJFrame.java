@@ -223,7 +223,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
         String address = txtAddress.getText();
         String city = txtCity.getText();
         
-        per.addnewperson(username, password, usertype, name, age, gender, address, city);
+//        per.addnewperson(username, password, usertype, name, age, gender, address, city);
         
         //if user type is patient
         if(usertype.equals("Patient")){

@@ -4,8 +4,11 @@
  */
 package ui;
 
+import static java.awt.image.ImageObserver.ABORT;
 import javax.swing.JOptionPane;
 import model.HospitalAdmin;
+import model.Person;
+import static model.Person.personDirectory;
 
 /**
  *
@@ -16,6 +19,7 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddHospitalAdminJPanel
      */
+    Person person = new Person();
     HospitalAdmin hospitalAdmin = new HospitalAdmin();
     public CreateHospitalAdminJPanel() {
         initComponents();
@@ -81,7 +85,7 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
                             .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(61, 61, 61)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(641, Short.MAX_VALUE)))
+                            .addContainerGap(241, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -156,7 +160,16 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
         String city = txtCity.getText();
         
         hospitalAdmin.addNewHospitalAdmin(name, gender, hospitalName, city);
-        JOptionPane.showMessageDialog(this,"hospital admin created successfully");
+        
+        String username = name;
+        String password = name;
+        String usertype = "hospital admin";
+        System.out.println("=======CreateHospitalAdminJPanel================="+username+"=="+password+"=="+usertype);
+        personDirectory.add(new Person(username, password, usertype, name, 0, gender, "NoHouse", city, "NoPhysicianType", hospitalName));
+        for(Person per: Person.getPersonDirectory()){
+            System.out.println(per.getName()+per.getPassword()+per.getCity());
+        }
+        JOptionPane.showMessageDialog(this, "Hospital Admin added successfuly");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtHospitalNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospitalNameActionPerformed
