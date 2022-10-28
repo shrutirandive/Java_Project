@@ -134,6 +134,10 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        MainJFrame mainPage = new MainJFrame();
+        mainPage.setVisible(true);
+        CommunityAdminJFrame commAdmin = new CommunityAdminJFrame();
+        commAdmin.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**

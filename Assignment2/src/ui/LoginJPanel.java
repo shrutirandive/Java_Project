@@ -95,6 +95,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        MainJFrame mainPage = new MainJFrame();
         
         String username = txtUsername.getText();
         String password = jPasswordField1.getText();
@@ -108,8 +109,10 @@ public class LoginJPanel extends javax.swing.JPanel {
                 System.out.println("== Username and Password Matches for== "+person.getUserType());
                 
                 if(person.getUserType().equals("system admin")){
+                    
                     SystemAdminJFrame systemAdmin = new SystemAdminJFrame();
                     systemAdmin.setVisible(true);
+                    
                 }
                 else if(person.getUserType().equals("community admin")){
                     CommunityAdminJFrame communityAdmin = new CommunityAdminJFrame();
@@ -162,4 +165,6 @@ public class LoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblUsername;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+    
 }
+

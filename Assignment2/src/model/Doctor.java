@@ -136,7 +136,9 @@ public class Doctor {
         System.out.println("Doctor Added Successfully in Hospital");
         System.out.println(doctorInHospitalDirectory.size()-1);   
     }
-    public void patientAddDoctors(String name, String gender, String physicianType, String hospitalName){
+    public void patientAddDoctors(String name, String gender, String physicianType, String house, String city, String hospitalName){
         encounterHistory.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
+        System.out.println("Appointment Booked ");
+        
     }
 }

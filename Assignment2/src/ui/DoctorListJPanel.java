@@ -7,6 +7,7 @@ package ui;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Doctor;
+import model.Person;
 
 /**
  *
@@ -17,6 +18,7 @@ public class DoctorListJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorJPanel
      */
+    Person person = new Person();
     Doctor doc = new Doctor();
     public DoctorListJPanel() {
         initComponents();
@@ -108,14 +110,27 @@ public class DoctorListJPanel extends javax.swing.JPanel {
 
         Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex, 0);
         System.out.println(selectedDoctor);
-        
-//        doc.patientAddDoctors(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHospitalName());
-        doc.addDoctorInHospital(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
+        for(Person per:Person.personDirectory){
+              System.out.println("=========================");
+              System.out.println(per.getUserName());
+              String selectedUserType = per.getUserType();
+              System.out.println(per.getUserType()+"=========="+selectedUserType);
+              System.out.println("=========================");
+              
+              if (selectedUserType.equals("hospital admin")){
+                doc.addDoctorInHospital(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
+                JOptionPane.showMessageDialog(this, "Doctor added in hospital ");
+              }
+              else if (selectedUserType.equals("patient")){
+                  doc.patientAddDoctors(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
+                  JOptionPane.showMessageDialog(this, "Appointment bookeed for this doctor");
+              }
+        }
     }//GEN-LAST:event_tblDoctorMouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this,"Doctor added to the Hospital");
+//        JOptionPane.showMessageDialog(this,"Doctor added to the Hospital");
     }//GEN-LAST:event_btnAddActionPerformed
 
 

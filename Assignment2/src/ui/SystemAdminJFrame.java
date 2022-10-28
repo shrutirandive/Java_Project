@@ -209,6 +209,8 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
 
     private void btnAddCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCommunityAdminActionPerformed
         // TODO add your handling code here:
+        CreateCommunityAdminJPanel createCommuntiyAdmin = new CreateCommunityAdminJPanel();
+        splitPane.setRightComponent(createCommuntiyAdmin);
     }//GEN-LAST:event_btnAddCommunityAdminActionPerformed
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
