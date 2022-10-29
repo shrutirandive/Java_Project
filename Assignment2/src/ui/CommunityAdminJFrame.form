@@ -63,6 +63,7 @@
                                   <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="btnViewPerson" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -75,9 +76,11 @@
                       <Component id="btnCreateHospitalAdmin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnViewHospitalAdmin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="282" max="32767" attributes="0"/>
+                      <EmptySpace pref="254" max="32767" attributes="0"/>
+                      <Component id="btnViewPerson" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="btnProfile" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
@@ -113,6 +116,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnViewPerson">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="View Person"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

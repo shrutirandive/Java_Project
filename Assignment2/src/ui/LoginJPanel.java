@@ -42,6 +42,25 @@ public class LoginJPanel extends javax.swing.JPanel {
     public static void setPatientCity(String patientCity) {
         LoginJPanel.patientCity = patientCity;
     }
+    public static String patientName;
+
+    public static String getPatientName() {
+        return patientName;
+    }
+
+    public static void setPatientName(String patientName) {
+        LoginJPanel.patientName = patientName;
+    }
+    public static int patientAge;
+
+    public static int getPatientAge() {
+        return patientAge;
+    }
+
+    public static void setPatientAge(int patientAge) {
+        LoginJPanel.patientAge = patientAge;
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -149,6 +168,8 @@ public class LoginJPanel extends javax.swing.JPanel {
                 }
                 else if(person.getUserType().equals("patient")){
                     patientCity = person.getCity();
+                    patientAge = person.getAge();
+                    patientName = person.getName();
                     System.out.println("Patient City= "+patientCity);
                     PatientJFrame patient = new PatientJFrame();
                     patient.setVisible(true);

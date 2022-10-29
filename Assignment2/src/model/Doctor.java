@@ -19,14 +19,14 @@ public class Doctor {
     String physicianType;
     String house;
     String city;
+    String patient;
     //hospital name can be extracted from hospital admin profile also instaed of taking from textbox
     String hospitalName; 
     static public List<Doctor> doctorDirectory= new ArrayList<Doctor>();
 //    static public List<Doctor> doctorInHospitalDirectory= new ArrayList<Doctor>();
     static public Set<Doctor> doctorInHospitalDirectory = new HashSet<Doctor>();
     
-//--encounter history is the doctor booked by the patient
-    static public List<Doctor> encounterHistory= new ArrayList<Doctor>();
+    static public List<Doctor> doctorBooked= new ArrayList<Doctor>();
     
     public Doctor() {
     }
@@ -39,6 +39,7 @@ public class Doctor {
         this.city = city;
         this.hospitalName = hospitalName;
     }
+
 
     @Override
     public String toString() {
@@ -110,12 +111,20 @@ public class Doctor {
         Doctor.doctorInHospitalDirectory = doctorInHospitalDirectory;
     }
 
-    public static List<Doctor> getEncounterHistory() {
-        return encounterHistory;
+    public static List<Doctor> getDoctorBooked() {
+        return doctorBooked;
     }
 
-    public static void setEncounterHistory(List<Doctor> encounterHistory) {
-        Doctor.encounterHistory = encounterHistory;
+    public static void setDoctorBooked(List<Doctor> doctorBooked) {
+        Doctor.doctorBooked = doctorBooked;
+    }
+
+    public String getPatient() {
+        return patient;
+    }
+
+    public void setPatient(String patient) {
+        this.patient = patient;
     }
     
     public void  addNewDoctors(String name, String gender, String physicianType, String house, String city, String hospitalName) 
@@ -139,7 +148,7 @@ public class Doctor {
         System.out.println(doctorInHospitalDirectory.size()-1);   
     }
     public void patientAddDoctors(String name, String gender, String physicianType, String house, String city, String hospitalName){
-        encounterHistory.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
+        doctorBooked.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
         System.out.println("Appointment Booked ");
         
     }

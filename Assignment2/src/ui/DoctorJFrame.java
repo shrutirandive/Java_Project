@@ -36,6 +36,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnViewPatients.setText("View Patients");
+        btnViewPatients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPatientsActionPerformed(evt);
+            }
+        });
 
         btnProfile.setText("Profile");
 
@@ -84,7 +89,7 @@ public class DoctorJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,6 +98,11 @@ public class DoctorJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnViewPatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientsActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnViewPatientsActionPerformed
 
     /**
      * @param args the command line arguments

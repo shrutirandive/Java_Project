@@ -31,29 +31,29 @@ public class DoctorBookedJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEncounterHistory = new javax.swing.JTable();
+        tblDoctorBooked = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
-        tblEncounterHistory.setModel(new javax.swing.table.DefaultTableModel(
+        tblDoctorBooked.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Doctor name", "Gender", "Physician Type", "Hospital Name"
+                "Doctor name", "Gender", "Physician Type", "House", "City", "Hospital Name"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true
+                true, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblEncounterHistory);
+        jScrollPane1.setViewportView(tblDoctorBooked);
 
         jLabel1.setText("Encounter History");
 
@@ -86,14 +86,14 @@ public class DoctorBookedJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblEncounterHistory;
+    private javax.swing.JTable tblDoctorBooked;
     // End of variables declaration//GEN-END:variables
     
     private void populateTable() {
-        DefaultTableModel model = (DefaultTableModel) tblEncounterHistory.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblDoctorBooked.getModel();
         model.setRowCount(0);
         
-        for(Doctor doc: Doctor.getEncounterHistory()){
+        for(Doctor doc: Doctor.getDoctorBooked()){
             Object[] row = new Object[6];
             row[0] = doc;
             row[1] = doc.getGender();
@@ -101,6 +101,7 @@ public class DoctorBookedJPanel extends javax.swing.JPanel {
             row[3] = doc.getHouse();
             row[4] = doc.getCity();
             row[5] = doc.getHospitalName();
+
             model.addRow(row);
         }       
     }

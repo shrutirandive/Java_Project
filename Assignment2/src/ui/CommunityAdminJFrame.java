@@ -31,6 +31,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         btnViewHospitalAdmin = new javax.swing.JButton();
         btnProfile = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnViewPerson = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
 
@@ -59,6 +60,8 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnViewPerson.setText("View Person");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -72,7 +75,8 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnProfile)
-                            .addComponent(btnBack))))
+                            .addComponent(btnBack)))
+                    .addComponent(btnViewPerson))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -82,9 +86,11 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreateHospitalAdmin)
                 .addGap(18, 18, 18)
                 .addComponent(btnViewHospitalAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addComponent(btnViewPerson)
+                .addGap(39, 39, 39)
                 .addComponent(btnProfile)
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
                 .addComponent(btnBack)
                 .addGap(32, 32, 32))
         );
@@ -190,6 +196,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnCreateHospitalAdmin;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnViewHospitalAdmin;
+    private javax.swing.JButton btnViewPerson;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblTitle;
