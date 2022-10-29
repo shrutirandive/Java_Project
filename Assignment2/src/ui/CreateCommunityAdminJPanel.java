@@ -4,6 +4,8 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+import model.CommunityAdmin;
 import model.Person;
 
 /**
@@ -16,6 +18,7 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
      * Creates new form CreateCommunityAdminJPanel
      */
     Person person = new Person();
+    CommunityAdmin communityAd = new CommunityAdmin();
     public CreateCommunityAdminJPanel() {
         initComponents();
     }
@@ -142,18 +145,17 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
         String house = txtHouse.getText();
         String city = txtCity.getText();
         
-
-//        doctor.addNewDoctors(name, gender, physicianType, house, city, hospitalName);
+        communityAd.addNewCommunityAdmin(name, gender, house, city);
 
         String username = name;
         String password = name;
         String usertype = "community admin";
         System.out.println("=======CreateCommunityAdminJPanel================="+username+"=="+password+"=="+usertype);
         person.addNewPerson(username, password, usertype, name, ABORT, gender, house, city, "NoPhysicianType", "NoHospitalName");
-//        for(Person per: Person.getPersonDirectory()){
-//            System.out.println(per.getName()+per.getPassword()+per.getCity());
-//        }
-//        JOptionPane.showMessageDialog(this, "Community admin added successfuly");
+        for(Person per: Person.getPersonDirectory()){
+            System.out.println(per.getName()+"       "+per.getPassword()+"              "+per.getCity());
+        }
+        JOptionPane.showMessageDialog(this, "Community admin added successfuly");
 
     }//GEN-LAST:event_btnSaveActionPerformed
 

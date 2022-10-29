@@ -36,7 +36,7 @@ public class PatientJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnProfile = new javax.swing.JButton();
         btnDoctorList = new javax.swing.JButton();
-        btnDoctorAppointed = new javax.swing.JButton();
+        btnDoctorBooked = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
@@ -56,10 +56,10 @@ public class PatientJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnDoctorAppointed.setText("Encounter History");
-        btnDoctorAppointed.addActionListener(new java.awt.event.ActionListener() {
+        btnDoctorBooked.setText("Doctor Booked");
+        btnDoctorBooked.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDoctorAppointedActionPerformed(evt);
+                btnDoctorBookedActionPerformed(evt);
             }
         });
 
@@ -87,7 +87,7 @@ public class PatientJFrame extends javax.swing.JFrame {
                                     .addComponent(btnBack)
                                     .addComponent(btnProfile))))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnDoctorAppointed, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnDoctorBooked, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -96,7 +96,7 @@ public class PatientJFrame extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(btnDoctorList)
                 .addGap(40, 40, 40)
-                .addComponent(btnDoctorAppointed)
+                .addComponent(btnDoctorBooked)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addComponent(btnProfile)
                 .addGap(42, 42, 42)
@@ -138,15 +138,16 @@ public class PatientJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDoctorAppointedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorAppointedActionPerformed
+    private void btnDoctorBookedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorBookedActionPerformed
         // TODO add your handling code here:
-        EncounterHistoryJPanel doctorApp = new EncounterHistoryJPanel();
-        splitPane.setRightComponent(doctorApp);
-    }//GEN-LAST:event_btnDoctorAppointedActionPerformed
+        DoctorBookedJPanel doctorBooked = new DoctorBookedJPanel();
+        splitPane.setRightComponent(doctorBooked);
+        
+    }//GEN-LAST:event_btnDoctorBookedActionPerformed
 
     private void btnDoctorListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorListActionPerformed
         // TODO add your handling code here:
-        DoctorListJPanel doctorList = new DoctorListJPanel();
+        DoctorListPatientJPanel doctorList = new DoctorListPatientJPanel();
         splitPane.setRightComponent(doctorList);
     }//GEN-LAST:event_btnDoctorListActionPerformed
 
@@ -201,7 +202,7 @@ public class PatientJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnDoctorAppointed;
+    private javax.swing.JButton btnDoctorBooked;
     private javax.swing.JButton btnDoctorList;
     private javax.swing.JButton btnProfile;
     private javax.swing.JPanel jPanel1;

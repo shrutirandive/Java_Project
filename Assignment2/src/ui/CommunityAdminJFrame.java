@@ -80,9 +80,9 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(btnCreateHospitalAdmin)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(btnViewHospitalAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
                 .addComponent(btnProfile)
                 .addGap(51, 51, 51)
                 .addComponent(btnBack)
@@ -124,7 +124,7 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(splitPane)
         );
 
         pack();

@@ -13,14 +13,15 @@ import model.Person;
  *
  * @author user
  */
-public class DoctorListJPanel extends javax.swing.JPanel {
+public class DoctorListPatientJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form DoctorJPanel
      */
+    LoginJPanel loginPanel = new LoginJPanel();
     Person person = new Person();
     Doctor doc = new Doctor();
-    public DoctorListJPanel() {
+    public DoctorListPatientJPanel() {
         initComponents();
         populateTable();
     }
@@ -36,7 +37,7 @@ public class DoctorListJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDoctor = new javax.swing.JTable();
-        btnAdd = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -64,38 +65,31 @@ public class DoctorListJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDoctor);
 
-        btnAdd.setText("ADD");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Book Doctor Appointment");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(btnAdd)
-                .addContainerGap(418, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1)
-                    .addContainerGap()))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(233, Short.MAX_VALUE)
-                .addComponent(btnAdd)
-                .addGap(20, 20, 20))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(30, 30, 30)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(56, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -109,41 +103,27 @@ public class DoctorListJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
 
         Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex, 0);
-        System.out.println(selectedDoctor);
-        for(Person per:Person.personDirectory){
-              System.out.println("=========LOGGED IN AS================");
-              String selectedUserType = per.getUserType();
-              System.out.println(per.getUserName()+"     "+selectedUserType);
-              
-              System.out.println("=========================");
-              
-              if (selectedUserType.equals("hospital admin")){
-                doc.addDoctorInHospital(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
-                JOptionPane.showMessageDialog(this, "Doctor added in hospital ");
-              }
-              else if (selectedUserType.equals("patient")){
-                  doc.patientAddDoctors(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
-                  JOptionPane.showMessageDialog(this, "Appointment booked for this doctor");
-              }
-        }
+        System.out.println("Doctor List Patient JPanel   "+selectedDoctor);
+             
+        doc.patientAddDoctors(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
+        JOptionPane.showMessageDialog(this, "Appointment booked for this doctor");
+        
     }//GEN-LAST:event_tblDoctorMouseClicked
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
-//        JOptionPane.showMessageDialog(this,"Doctor added to the Hospital");
-    }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDoctor;
     // End of variables declaration//GEN-END:variables
+    
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
         model.setRowCount(0);
         
         for(Doctor doc: Doctor.getDoctorDirectory()){
+            if(doc.getCity().equals(loginPanel.getPatientCity())){
+//                System.out.println("Patient City= "+loginPanel.getPatientCity());
             Object[] row = new Object[6];
             row[0] = doc;
             row[1] = doc.getGender();
@@ -152,6 +132,12 @@ public class DoctorListJPanel extends javax.swing.JPanel {
             row[4] = doc.getCity();
             row[5] = doc.getHospitalName();
             model.addRow(row);
+            }
+            else
+            {
+                continue;
+            }
+            
         }
         
     }

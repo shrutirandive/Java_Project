@@ -24,6 +24,8 @@ public class Doctor {
     static public List<Doctor> doctorDirectory= new ArrayList<Doctor>();
 //    static public List<Doctor> doctorInHospitalDirectory= new ArrayList<Doctor>();
     static public Set<Doctor> doctorInHospitalDirectory = new HashSet<Doctor>();
+    
+//--encounter history is the doctor booked by the patient
     static public List<Doctor> encounterHistory= new ArrayList<Doctor>();
     
     public Doctor() {

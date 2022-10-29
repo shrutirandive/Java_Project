@@ -72,7 +72,7 @@
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="btnDoctorAppointed" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnDoctorBooked" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -84,7 +84,7 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="btnDoctorList" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="btnDoctorAppointed" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDoctorBooked" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="145" max="32767" attributes="0"/>
                       <Component id="btnProfile" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -111,12 +111,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoctorListActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnDoctorAppointed">
+            <Component class="javax.swing.JButton" name="btnDoctorBooked">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Encounter History"/>
+                <Property name="text" type="java.lang.String" value="Doctor Booked"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoctorAppointedActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoctorBookedActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBack">

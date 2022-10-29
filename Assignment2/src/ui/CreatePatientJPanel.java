@@ -145,10 +145,8 @@ public class CreatePatientJPanel extends javax.swing.JPanel {
         String password = name;
         String usertype = "patient";
         System.out.println("=======CreatePatientrJPanel================="+username+"=="+password+"=="+usertype);
-        person.addNewPerson(username, password, usertype, name, ABORT, gender, house, city, "NoPhysicianType", "NoHospitalName");
-        for(Person per: Person.getPersonDirectory()){
-            System.out.println(per.getName()+per.getPassword()+per.getCity());
-        }
+        person.addNewPerson(username, password, usertype, name, age, gender, house, city, "NoPhysicianType", "NoHospitalName");
+        
         JOptionPane.showMessageDialog(this, "Patient added successfuly");
 
     }//GEN-LAST:event_btnSaveActionPerformed

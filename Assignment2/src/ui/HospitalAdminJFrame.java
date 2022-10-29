@@ -134,7 +134,7 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
 
     private void btnDoctorListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorListActionPerformed
         // TODO add your handling code here:
-        DoctorListJPanel docList = new DoctorListJPanel();
+        DoctorListHospitalAdminJPanel docList = new DoctorListHospitalAdminJPanel();
         splitPane.setRightComponent(docList);
     }//GEN-LAST:event_btnDoctorListActionPerformed
 

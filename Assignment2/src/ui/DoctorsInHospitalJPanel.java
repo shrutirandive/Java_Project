@@ -35,6 +35,7 @@ public class DoctorsInHospitalJPanel extends javax.swing.JPanel {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAddDoctors = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         tblAddDoctors.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -62,16 +63,24 @@ public class DoctorsInHospitalJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblAddDoctors);
 
+        jLabel1.setText("DOCTOR IN HOSPITAL");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(255, Short.MAX_VALUE))
         );
@@ -83,6 +92,7 @@ public class DoctorsInHospitalJPanel extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblAddDoctors;
     // End of variables declaration//GEN-END:variables

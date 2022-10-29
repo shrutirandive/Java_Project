@@ -22,7 +22,27 @@ public class LoginJPanel extends javax.swing.JPanel {
     public LoginJPanel() {
         initComponents();
     }
+    
+    public static String communityAdminCity;
 
+    public static String getCommunityAdminCity() {
+        return communityAdminCity;
+    }
+
+    public static void setCommunityAdminCity(String CommunityAdminCity) {
+        LoginJPanel.communityAdminCity = CommunityAdminCity;
+    }
+    
+    public static String patientCity;
+
+    public static String getPatientCity() {
+        return patientCity;
+    }
+
+    public static void setPatientCity(String patientCity) {
+        LoginJPanel.patientCity = patientCity;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,24 +129,27 @@ public class LoginJPanel extends javax.swing.JPanel {
                 System.out.println("== Username and Password Matches for== "+person.getUserType());
                 
                 if(person.getUserType().equals("system admin")){
-                    
                     SystemAdminJFrame systemAdmin = new SystemAdminJFrame();
-                    systemAdmin.setVisible(true);
-                    
+                    systemAdmin.setVisible(true);                    
                 }
                 else if(person.getUserType().equals("community admin")){
+                    communityAdminCity = person.getCity();
+                    System.out.println("Community Admin City= "+communityAdminCity);
                     CommunityAdminJFrame communityAdmin = new CommunityAdminJFrame();
                     communityAdmin.setVisible(true);
                 }
                 else if(person.getUserType().equals("hospital admin")){
                     HospitalAdminJFrame hospAdmin = new HospitalAdminJFrame();
                     hospAdmin.setVisible(true); 
+                    
                 }
                 else if(person.getUserType().equals("doctor")){
                     DoctorJFrame doctor = new DoctorJFrame();
                     doctor.setVisible(true);
                 }
                 else if(person.getUserType().equals("patient")){
+                    patientCity = person.getCity();
+                    System.out.println("Patient City= "+patientCity);
                     PatientJFrame patient = new PatientJFrame();
                     patient.setVisible(true);
                 }

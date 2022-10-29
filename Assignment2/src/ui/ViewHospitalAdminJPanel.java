@@ -156,15 +156,15 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblGender)
                     .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblHospitalName)
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -236,7 +236,7 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
         HospitalAdmin selectedHospitalAdmin = (HospitalAdmin) model.getValueAt(selectedRowIndex, 0);
         
         ha.deleteHospitalAdmin(selectedHospitalAdmin);
-        JOptionPane.showMessageDialog(this,"employee deleted");
+        JOptionPane.showMessageDialog(this,"Hospital admin deleted");
         
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed

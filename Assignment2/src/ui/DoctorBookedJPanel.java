@@ -11,12 +11,12 @@ import model.Doctor;
  *
  * @author user
  */
-public class EncounterHistoryJPanel extends javax.swing.JPanel {
+public class DoctorBookedJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form EncounterHistoryJPanel
      */
-    public EncounterHistoryJPanel() {
+    public DoctorBookedJPanel() {
         initComponents();
         populateTable();
     }
