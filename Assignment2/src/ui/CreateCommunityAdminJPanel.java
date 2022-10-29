@@ -40,6 +40,8 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
         txtCity = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
+
         lblName.setText("NAME");
 
         lblGender.setText("GENDER");
@@ -84,7 +86,7 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(205, 205, 205)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(518, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +109,7 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addComponent(btnSave)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

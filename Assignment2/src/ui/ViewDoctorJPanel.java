@@ -7,6 +7,7 @@ package ui;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Doctor;
+import model.Person;
 
 /**
  *
@@ -17,6 +18,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewDoctorJPanel
      */
+    Person person = new Person();
     Doctor doc = new Doctor();
     public ViewDoctorJPanel() {
         initComponents();
@@ -238,8 +240,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             String hospitalName = txtHospitalName.getText();
             String city = txtCity.getText();
 
-            Doctor updateDoc = new Doctor();
-            
+            Doctor updateDoc = new Doctor();            
             //-- set updated value on the table row
             updateDoc.setName(name);
             updateDoc.setGender(gender);
@@ -248,6 +249,19 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             updateDoc.setHospitalName(hospitalName);
             updateDoc.setCity(city);
             doc.updateDoctor(updateDoc,selectedRowIndex);
+            
+            //UPDATE DOCTOR DATA IN PERSON DIRECTORY
+            Person updatePerson = new Person();
+
+            //-- set updated value on the table row
+            updatePerson.setName(name);
+            updatePerson.setGender(gender);
+            updatePerson.setPhysicianType(physicianType);
+            updatePerson.setHouse(house);
+            updatePerson.setHospitalName(hospitalName);
+            updatePerson.setCity(city);
+            person.updatePerson(person, selectedRowIndex);
+            
             populateTable();
 
             JOptionPane.showMessageDialog(this, "Data Updated Successfully ");

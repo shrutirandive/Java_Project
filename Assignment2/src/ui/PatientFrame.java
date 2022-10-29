@@ -145,6 +145,11 @@ public class PatientFrame extends javax.swing.JFrame {
         lblTitleProfile.setText("PATIENT PROFILE");
 
         lblProfile.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblProfileMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelProfileLayout = new javax.swing.GroupLayout(panelProfile);
         panelProfile.setLayout(panelProfileLayout);
@@ -357,6 +362,10 @@ public class PatientFrame extends javax.swing.JFrame {
         newFrame.setVisible(true);
         
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void lblProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProfileMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblProfileMouseClicked
 
     // To Display list of DOctors in Patient JFrame
     private void populateTable() {

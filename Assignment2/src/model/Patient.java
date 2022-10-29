@@ -35,7 +35,8 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", house=" + house + ", city=" + city + '}';
+        return name;
+//        return "Patient{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", house=" + house + ", city=" + city + '}';
     }
 
     public String getName() {

@@ -4,6 +4,12 @@
  */
 package ui;
 
+import java.util.List;
+import model.Patient;
+import static model.Patient.patientDirectory;
+import model.Person;
+import static model.Person.personDirectory;
+
 /**
  *
  * @author user
@@ -154,8 +160,10 @@ public class PatientJFrame extends javax.swing.JFrame {
 
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
         // TODO add your handling code here:
+        PatientProfileJPanel profile = new PatientProfileJPanel();
+        splitPane.setRightComponent(profile);
     }//GEN-LAST:event_btnProfileActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */

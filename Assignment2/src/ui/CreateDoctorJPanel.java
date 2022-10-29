@@ -46,18 +46,33 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         lblHospitalName = new javax.swing.JLabel();
         txtHospitalName = new javax.swing.JTextField();
 
+        lblName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         lblName.setText("NAME");
 
+        txtName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+
+        lblGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         lblGender.setText("GENDER");
 
+        comboBoxGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         comboBoxGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
 
+        lblHouse.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         lblHouse.setText("HOUSE");
 
+        txtHouse.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+
+        lblCity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         lblCity.setText("CITY");
 
+        txtCity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+
+        lblPhysicianType.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         lblPhysicianType.setText("PHYSICIAN TYPE");
 
+        txtPhysicianType.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+
+        btnSave.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +80,10 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblHospitalName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         lblHospitalName.setText("HOSPITAL NAME");
+
+        txtHospitalName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,7 +92,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(301, 301, 301)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblPhysicianType)
@@ -94,18 +112,20 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                                             .addComponent(lblHospitalName))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtHospitalName)
-                                            .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)))))
+                                            .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPhysicianType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(comboBoxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
+                        .addGap(397, 397, 397)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxGender, txtPhysicianType});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCity, lblGender, lblHospitalName, lblHouse, lblName, lblPhysicianType});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,9 +154,9 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHospitalName)
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(38, 38, 38)
                 .addComponent(btnSave)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

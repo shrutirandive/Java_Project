@@ -111,10 +111,10 @@ public class DoctorListJPanel extends javax.swing.JPanel {
         Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex, 0);
         System.out.println(selectedDoctor);
         for(Person per:Person.personDirectory){
-              System.out.println("=========================");
-              System.out.println(per.getUserName());
+              System.out.println("=========LOGGED IN AS================");
               String selectedUserType = per.getUserType();
-              System.out.println(per.getUserType()+"=========="+selectedUserType);
+              System.out.println(per.getUserName()+"     "+selectedUserType);
+              
               System.out.println("=========================");
               
               if (selectedUserType.equals("hospital admin")){
@@ -123,7 +123,7 @@ public class DoctorListJPanel extends javax.swing.JPanel {
               }
               else if (selectedUserType.equals("patient")){
                   doc.patientAddDoctors(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
-                  JOptionPane.showMessageDialog(this, "Appointment bookeed for this doctor");
+                  JOptionPane.showMessageDialog(this, "Appointment booked for this doctor");
               }
         }
     }//GEN-LAST:event_tblDoctorMouseClicked

@@ -44,11 +44,11 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
         lblAge = new javax.swing.JLabel();
         lblHouse = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
-        txtCity = new javax.swing.JTextField();
         txtHouse = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        txtCity = new javax.swing.JTextField();
 
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,7 +125,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtCity, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCity)
                                     .addComponent(txtHouse, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                                     .addComponent(comboGender, javax.swing.GroupLayout.Alignment.LEADING, 0, 106, Short.MAX_VALUE))
@@ -142,34 +142,31 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblName)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnUpdate)
-                                    .addComponent(btnDelete))
-                                .addGap(21, 21, 21)
-                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblAge)))
-                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblGender))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHouse)
-                            .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCity))
+                            .addComponent(lblName)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnDelete))
+                        .addGap(21, 21, 21)
+                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(129, 129, 129))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblAge)))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGender))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHouse)
+                    .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCity)
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(126, 126, 126))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -205,7 +202,8 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
             String gender = (String) comboGender.getSelectedItem();
             String house = txtHouse.getText();
             String city = txtCity.getText();
-
+            
+            //UPDATE PATIENTS DATA IN PATIENT DIRECTORY
             Patient updatePatient = new Patient();
 
             //-- set updated value on the table row
@@ -214,9 +212,21 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
             updatePatient.setAge(age);
             updatePatient.setHouse(house);
             updatePatient.setCity(city);
-            patient.updatePatient(patient, selectedRowIndex);
-            populateTable();
+            patient.updatePatient(updatePatient, selectedRowIndex);
+            
+            
+            //UPDATE PATIENT DATA IN PERSON DIRECTORY
+            Person updatePerson = new Person();
 
+            //-- set updated value on the table row
+            updatePerson.setName(name);
+            updatePerson.setGender(gender);
+            updatePerson.setAge(age);
+            updatePerson.setHouse(house);
+            updatePerson.setCity(city);
+            person.updatePerson(person, selectedRowIndex);
+            
+            populateTable();
             JOptionPane.showMessageDialog(this, "Data Updated Successfully ");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -229,10 +239,15 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblPatient.getModel();
-        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex, 0);
 
+        //DELETE PATIENT FROM PATIENT DIRECTORY
+        Patient selectedPatient = (Patient) model.getValueAt(selectedRowIndex, 0);
         patient.deletePatient(selectedPatient);
-        JOptionPane.showMessageDialog(this,"patient deleted");
+        
+        //DELETE PATIENT FROM PERSON DIRECTORY
+//        Person selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
+//        person.deleteDoctor(selectedPerson);
+//        JOptionPane.showMessageDialog(this,"Patient deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
