@@ -16,6 +16,18 @@ public class Appointment {
     String patientName;
     String patientCity;
     int patientAge;
+    VitalSigns vs;
+
+    public Appointment(String docName, String patientName, String patientCity, int patientAge, VitalSigns vs) {
+        this.docName = docName;
+        this.patientName = patientName;
+        this.patientCity = patientCity;
+        this.patientAge = patientAge;
+        this.vs = vs;
+    }
+   
+
+ 
     static public List<Appointment> bookAppointment= new ArrayList<Appointment>();
     
     public Appointment(String docName, String patientName, String patientCity, int patientAge) {

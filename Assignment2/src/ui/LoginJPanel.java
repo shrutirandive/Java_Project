@@ -60,6 +60,15 @@ public class LoginJPanel extends javax.swing.JPanel {
     public static void setPatientAge(int patientAge) {
         LoginJPanel.patientAge = patientAge;
     }
+    public static String doctorName;
+
+    public static String getDoctorName() {
+        return doctorName;
+    }
+
+    public static void setDoctorName(String doctorName) {
+        LoginJPanel.doctorName = doctorName;
+    }
     
     
     /**
@@ -163,9 +172,10 @@ public class LoginJPanel extends javax.swing.JPanel {
                     
                 }
                 else if(person.getUserType().equals("doctor")){
-                    patientCity = person.getCity();
-                    patientAge = person.getAge();
-                    patientName = person.getName();
+//                    patientCity = person.getCity();
+//                    patientAge = person.getAge();
+//                    patientName = person.getName();
+                    doctorName = person.getName();
                     DoctorJFrame doctor = new DoctorJFrame();
                     doctor.setVisible(true);
                 }

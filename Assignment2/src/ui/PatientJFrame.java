@@ -38,9 +38,13 @@ public class PatientJFrame extends javax.swing.JFrame {
         btnDoctorList = new javax.swing.JButton();
         btnDoctorBooked = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnEncounterHistory = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(200, 371));
 
         btnProfile.setText("Profile");
         btnProfile.addActionListener(new java.awt.event.ActionListener() {
@@ -70,26 +74,30 @@ public class PatientJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEncounterHistory.setText("Encounter History");
+        btnEncounterHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEncounterHistoryActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnDoctorList))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnBack)
-                                    .addComponent(btnProfile))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnDoctorBooked, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(btnDoctorList, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEncounterHistory)
+                    .addComponent(btnDoctorBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProfile)
+                    .addComponent(btnBack))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnDoctorBooked, btnDoctorList, btnEncounterHistory, btnProfile});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -97,12 +105,16 @@ public class PatientJFrame extends javax.swing.JFrame {
                 .addComponent(btnDoctorList)
                 .addGap(40, 40, 40)
                 .addComponent(btnDoctorBooked)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(btnEncounterHistory)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(btnProfile)
-                .addGap(42, 42, 42)
+                .addGap(41, 41, 41)
                 .addComponent(btnBack)
-                .addGap(16, 16, 16))
+                .addGap(17, 17, 17))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnDoctorBooked, btnDoctorList, btnEncounterHistory, btnProfile});
 
         splitPane.setLeftComponent(jPanel1);
 
@@ -110,7 +122,7 @@ public class PatientJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGap(0, 554, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,15 +136,15 @@ public class PatientJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(splitPane, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -164,6 +176,12 @@ public class PatientJFrame extends javax.swing.JFrame {
         PatientProfileJPanel profile = new PatientProfileJPanel();
         splitPane.setRightComponent(profile);
     }//GEN-LAST:event_btnProfileActionPerformed
+
+    private void btnEncounterHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncounterHistoryActionPerformed
+        // TODO add your handling code here:
+        EncounterHistoryJPanel encounterHistory = new EncounterHistoryJPanel();
+        splitPane.setRightComponent(encounterHistory);
+    }//GEN-LAST:event_btnEncounterHistoryActionPerformed
     
     /**
      * @param args the command line arguments
@@ -204,6 +222,7 @@ public class PatientJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDoctorBooked;
     private javax.swing.JButton btnDoctorList;
+    private javax.swing.JButton btnEncounterHistory;
     private javax.swing.JButton btnProfile;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

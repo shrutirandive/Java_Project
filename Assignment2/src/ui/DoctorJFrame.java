@@ -44,9 +44,19 @@ public class DoctorJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnProfile.setText("jButton2");
+        btnProfile.setText("Profile");
+        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfileActionPerformed(evt);
+            }
+        });
 
-        btnBack.setText("jButton3");
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -111,6 +121,18 @@ public class DoctorJFrame extends javax.swing.JFrame {
         ViewPatientsForDoctorJPanel viewPatients = new ViewPatientsForDoctorJPanel();
         splitPane.setRightComponent(viewPatients);
     }//GEN-LAST:event_btnViewPatientsActionPerformed
+
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProfileActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        MainJFrame mainPage = new MainJFrame();
+        mainPage.setVisible(true);
+        DoctorJFrame doctor = new DoctorJFrame();
+        doctor.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

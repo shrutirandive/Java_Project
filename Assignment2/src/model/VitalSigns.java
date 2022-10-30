@@ -13,6 +13,8 @@ import static model.Patient.patientDirectory;
  * @author user
  */
 public class VitalSigns {
+    String Patientname;
+    String doctorName;
     Double temperature;
     Double bloodPressure;
     
@@ -22,15 +24,20 @@ public class VitalSigns {
         
     }
 
-    public VitalSigns(Double temperature, Double bloodPressure) {
+    public VitalSigns(String Patientname, String doctorName, Double temperature, Double bloodPressure) {
+        this.Patientname = Patientname;
+        this.doctorName = doctorName;
         this.temperature = temperature;
-        this.bloodPressure = bloodPressure;  
+        this.bloodPressure = bloodPressure;
     }
 
     @Override
     public String toString() {
-        return "VitalSigns{" + "temperature=" + temperature + ", bloodPressure=" + bloodPressure + '}';
+        return doctorName;
+//        return "VitalSigns{" + "Patientname=" + Patientname + ", doctorName=" + doctorName + ", temperature=" + temperature + ", bloodPressure=" + bloodPressure + '}';
     }
+
+    
 
     public Double getTemperature() {
         return temperature;
@@ -39,6 +46,7 @@ public class VitalSigns {
     public void setTemperature(Double temperature) {
         this.temperature = temperature;
     }
+    
 
     public Double getBloodPressure() {
         return bloodPressure;
@@ -55,13 +63,29 @@ public class VitalSigns {
     public static void setVitalSigns(List<VitalSigns> vitalSigns) {
         VitalSigns.vitalSigns = vitalSigns;
     }
+
+    public String getPatientname() {
+        return Patientname;
+    }
+
+    public void setPatientname(String Patientname) {
+        this.Patientname = Patientname;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
     
     
-    public void  addNewVitalSigns(Double temperature, Double bloodPressure) 
+    public void  addNewVitalSigns(String Patientname, String doctorName, Double temperature, Double bloodPressure) 
     {
-        vitalSigns.add(new VitalSigns(temperature,bloodPressure));
+        vitalSigns.add(new VitalSigns(Patientname,doctorName,temperature,bloodPressure));
         System.out.println("Vital Signs for Patient Added Successfully !!");
-           }
+      }
     
     public List<VitalSigns> getList() {
        return vitalSigns;

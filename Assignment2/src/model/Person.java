@@ -28,6 +28,7 @@ public class Person {
     String hospitalName;
     
     
+    
     static public List<Person> personDirectory= new ArrayList<Person>();
     
     public Person() {
@@ -44,6 +45,7 @@ public class Person {
         this.city = city;
         this.physicianType = physicianType;
         this.hospitalName = hospitalName;
+        
     }
 
     @Override

@@ -4,8 +4,10 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Appointment;
+import model.VitalSigns;
 
 /**
  *
@@ -16,7 +18,9 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewPatientsJPanel
      */
+    LoginJPanel loginPanel = new LoginJPanel();
     Appointment docAppoint = new Appointment();
+    VitalSigns vs = new VitalSigns();
     public ViewPatientsForDoctorJPanel() {
         initComponents();
         populateTable();
@@ -39,6 +43,8 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
         lblBloodPressure = new javax.swing.JLabel();
         txtBloodPressure = new javax.swing.JTextField();
         btnAddVitalSigns = new javax.swing.JButton();
+        lblPatientName = new javax.swing.JLabel();
+        txtPatientName = new javax.swing.JTextField();
 
         tblViewPatients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,6 +79,13 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
         lblBloodPressure.setText("Blood Pressure");
 
         btnAddVitalSigns.setText("ADD");
+        btnAddVitalSigns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddVitalSignsActionPerformed(evt);
+            }
+        });
+
+        lblPatientName.setText("Patient Name");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -89,15 +102,17 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
                                 .addGap(116, 116, 116)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
+                                .addGap(42, 42, 42)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblTemperature)
-                                    .addComponent(lblBloodPressure))
-                                .addGap(88, 88, 88)
+                                    .addComponent(lblBloodPressure)
+                                    .addComponent(lblPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(68, 68, 68)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtTemperature)
-                                    .addComponent(txtBloodPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
-                                .addGap(131, 131, 131)
+                                    .addComponent(txtBloodPressure)
+                                    .addComponent(txtPatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                                .addGap(123, 123, 123)
                                 .addComponent(btnAddVitalSigns)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -109,27 +124,55 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTemperature))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(btnAddVitalSigns))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPatientName)
+                            .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTemperature))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblBloodPressure)
-                            .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(btnAddVitalSigns)))
-                .addContainerGap(139, Short.MAX_VALUE))
+                            .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblViewPatientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblViewPatientsMouseClicked
         // TODO add your handling code here:
+        int selectedRowIndex = tblViewPatients.getSelectedRow();
+        if (selectedRowIndex < 0){
+            JOptionPane.showMessageDialog(this,"please select a row");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblViewPatients.getModel();
         
+        Appointment selectedPatient = (Appointment) model.getValueAt(selectedRowIndex, 0);
+        System.out.println("=====VIEW PATIENTS FOR DOCTORS==========");
+        System.out.println("Patient name= "+selectedPatient.getPatientName()+"Patient city= "+selectedPatient.getPatientCity());
+        
+        txtPatientName.setText(selectedPatient.getPatientName());
     }//GEN-LAST:event_tblViewPatientsMouseClicked
+
+    private void btnAddVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVitalSignsActionPerformed
+        // TODO add your handling code here:
+        String patientName = txtPatientName.getText();
+        String doctorName = loginPanel.getDoctorName();
+        
+        System.out.println("Patient name- "+patientName+"Doctor name- "+doctorName);
+        
+        Double temp = Double.parseDouble(txtTemperature.getText());
+        Double bp = Double.parseDouble(txtBloodPressure.getText());
+        vs.addNewVitalSigns(patientName, doctorName, temp, bp);
+        JOptionPane.showMessageDialog(this,"Vital Signs added for "+patientName);
+    }//GEN-LAST:event_btnAddVitalSignsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -137,9 +180,11 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBloodPressure;
+    private javax.swing.JLabel lblPatientName;
     private javax.swing.JLabel lblTemperature;
     private javax.swing.JTable tblViewPatients;
     private javax.swing.JTextField txtBloodPressure;
+    private javax.swing.JTextField txtPatientName;
     private javax.swing.JTextField txtTemperature;
     // End of variables declaration//GEN-END:variables
     
