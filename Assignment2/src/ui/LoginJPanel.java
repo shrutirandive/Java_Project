@@ -163,6 +163,9 @@ public class LoginJPanel extends javax.swing.JPanel {
                     
                 }
                 else if(person.getUserType().equals("doctor")){
+                    patientCity = person.getCity();
+                    patientAge = person.getAge();
+                    patientName = person.getName();
                     DoctorJFrame doctor = new DoctorJFrame();
                     doctor.setVisible(true);
                 }

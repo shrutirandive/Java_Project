@@ -7,7 +7,7 @@ package ui;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Appointment;
-import static model.Appointment.encounterHistory;
+import static model.Appointment.bookAppointment;
 import model.Doctor;
 import model.Person;
 
@@ -24,6 +24,7 @@ public class DoctorListPatientJPanel extends javax.swing.JPanel {
     Person person = new Person();
     Doctor doc = new Doctor();
     Appointment app = new Appointment();
+    
     public DoctorListPatientJPanel() {
         initComponents();
         populateTable();
@@ -109,8 +110,9 @@ public class DoctorListPatientJPanel extends javax.swing.JPanel {
         System.out.println("Doctor List Patient JPanel   "+selectedDoctor);
              
         doc.patientAddDoctors(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
-        app.encounterHistory.add(new Appointment(selectedDoctor.getName(), loginPanel.getPatientName(),  loginPanel.getPatientCity(),loginPanel.getPatientAge()));
-        for(Appointment appo:encounterHistory){
+        
+        app.bookAppointment.add(new Appointment(selectedDoctor.getName(), loginPanel.getPatientName(),  loginPanel.getPatientCity(),loginPanel.getPatientAge()));
+        for(Appointment appo:bookAppointment){
             System.out.println("=====APPOINTMENT ===========");
             System.out.println(appo.getDocName()+appo.getPatientName());
         }

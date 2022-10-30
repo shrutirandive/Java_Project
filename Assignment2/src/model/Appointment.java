@@ -16,12 +16,19 @@ public class Appointment {
     String patientName;
     String patientCity;
     int patientAge;
-
+    static public List<Appointment> bookAppointment= new ArrayList<Appointment>();
+    
     public Appointment(String docName, String patientName, String patientCity, int patientAge) {
         this.docName = docName;
         this.patientName = patientName;
         this.patientCity = patientCity;
         this.patientAge = patientAge;
+    }
+
+    @Override
+    public String toString() {
+        return patientName;
+//        return "Appointment{" + "docName=" + docName + ", patientName=" + patientName + ", patientCity=" + patientCity + ", patientAge=" + patientAge + '}';
     }
 
     public Appointment() {
@@ -59,12 +66,12 @@ public class Appointment {
         this.patientAge = patientAge;
     }
 
-    public static List<Appointment> getEncounterHistory() {
-        return encounterHistory;
+    public static List<Appointment> getBookAppointment() {
+        return bookAppointment;
     }
 
-    public static void setEncounterHistory(List<Appointment> encounterHistory) {
-        Appointment.encounterHistory = encounterHistory;
+    public static void setBookAppointment(List<Appointment> bookAppointment) {
+        Appointment.bookAppointment = bookAppointment;
     }
-    static public List<Appointment> encounterHistory= new ArrayList<Appointment>();
+    
 }

@@ -48,7 +48,8 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "userName=" + userName + ", password=" + password + ", userType=" + userType + ", name=" + name + ", age=" + age + ", gender=" + gender + ", house=" + house + ", city=" + city + ", physicianType=" + physicianType + ", hospitalName=" + hospitalName + '}';
+        return userType;
+//        return "Person{" + "userName=" + userName + ", password=" + password + ", userType=" + userType + ", name=" + name + ", age=" + age + ", gender=" + gender + ", house=" + house + ", city=" + city + ", physicianType=" + physicianType + ", hospitalName=" + hospitalName + '}';
     }
 
     public String getUserName() {

@@ -32,6 +32,8 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         btnProfile = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnViewPerson = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
 
@@ -61,6 +63,15 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         });
 
         btnViewPerson.setText("View Person");
+        btnViewPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPersonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Create Doctor");
+
+        jButton3.setText("Create Patient");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,13 +81,16 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCreateHospitalAdmin)
-                    .addComponent(btnViewHospitalAdmin)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnProfile)
                             .addComponent(btnBack)))
-                    .addComponent(btnViewPerson))
+                    .addComponent(btnViewPerson)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnViewHospitalAdmin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -86,7 +100,11 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
                 .addComponent(btnCreateHospitalAdmin)
                 .addGap(18, 18, 18)
                 .addComponent(btnViewHospitalAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addComponent(btnViewPerson)
                 .addGap(39, 39, 39)
                 .addComponent(btnProfile)
@@ -156,6 +174,12 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
         commAdmin.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnViewPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPersonActionPerformed
+        // TODO add your handling code here:
+        PersonJPanel person = new PersonJPanel();
+        splitPane.setRightComponent(person);
+    }//GEN-LAST:event_btnViewPersonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -197,6 +221,8 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnViewHospitalAdmin;
     private javax.swing.JButton btnViewPerson;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblTitle;
