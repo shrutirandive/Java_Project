@@ -25,7 +25,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txtCity" linkSize="2" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCommunity" linkSize="2" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblHospitalName" linkSize="3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -42,7 +42,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="comboGender" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="lblCity" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCommunity" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblName" linkSize="3" min="-2" pref="114" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -83,8 +83,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCity" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCity" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCommunity" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCommunity" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
@@ -106,7 +106,7 @@
                 <Column editable="false" title="Name" type="java.lang.Object"/>
                 <Column editable="false" title="Gender" type="java.lang.Object"/>
                 <Column editable="false" title="HospitalName" type="java.lang.Object"/>
-                <Column editable="false" title="City" type="java.lang.Object"/>
+                <Column editable="false" title="Community" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -160,12 +160,12 @@
         <Property name="text" type="java.lang.String" value="HOSPITAL NAME"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblCity">
+    <Component class="javax.swing.JLabel" name="lblCommunity">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CITY"/>
+        <Property name="text" type="java.lang.String" value="COMMUNITY"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCity">
+    <Component class="javax.swing.JTextField" name="txtCommunity">
     </Component>
     <Component class="javax.swing.JTextField" name="txtHospitalName">
       <Events>

@@ -41,17 +41,17 @@ public class DoctorListHospitalAdminJPanel extends javax.swing.JPanel {
 
         tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Gender", "PhysicianType", "House", "City", "HospitalName"
+                "Name", "Gender", "PhysicianType", "House", "Community", "City", "HospitalName"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -107,7 +107,7 @@ public class DoctorListHospitalAdminJPanel extends javax.swing.JPanel {
         Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex, 0);
         System.out.println(selectedDoctor);
 
-        doc.addDoctorInHospital(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
+        doc.addDoctorInHospital(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCommunity(),selectedDoctor.getCity(), selectedDoctor.getHospitalName());
         JOptionPane.showMessageDialog(this, "Doctor added in hospital ");
 
     }//GEN-LAST:event_tblDoctorMouseClicked
@@ -123,13 +123,14 @@ public class DoctorListHospitalAdminJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Doctor doc: Doctor.getDoctorDirectory()){
-            Object[] row = new Object[6];
+            Object[] row = new Object[7];
             row[0] = doc;
             row[1] = doc.getGender();
             row[2] = doc.getPhysicianType();
             row[3] = doc.getHouse();
-            row[4] = doc.getCity();
-            row[5] = doc.getHospitalName();
+            row[4] = doc.getCommunity();
+            row[5] = doc.getCity();
+            row[6] = doc.getHospitalName();
             model.addRow(row);
         }
         

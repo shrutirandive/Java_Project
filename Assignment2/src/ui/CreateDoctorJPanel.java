@@ -4,8 +4,11 @@
  */
 package ui;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import static model.CommunityAdmin.communityDirectory;
 import model.Doctor;
+import static model.HospitalAdmin.hospitalDirectory;
 import model.Person;
 
 /**
@@ -19,10 +22,15 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
      */
     Person person = new Person();
     Doctor doctor = new Doctor();
+    LoginJPanel loginPanel = new LoginJPanel();
+   
     public CreateDoctorJPanel() {
         initComponents();
+        populateTable();
+        populateTableHosp();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +52,9 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         txtPhysicianType = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         lblHospitalName = new javax.swing.JLabel();
-        txtHospitalName = new javax.swing.JTextField();
+        comboBoxHospName = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        comboBoxCommunity = new javax.swing.JComboBox<>();
 
         lblName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         lblName.setText("NAME");
@@ -83,7 +93,11 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         lblHospitalName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         lblHospitalName.setText("HOSPITAL NAME");
 
-        txtHospitalName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        comboBoxHospName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setText("COMMUNITY");
+
+        comboBoxCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,11 +123,13 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblCity)
-                                            .addComponent(lblHospitalName))
+                                            .addComponent(lblHospitalName)
+                                            .addComponent(jLabel1))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                                            .addComponent(comboBoxHospName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(comboBoxCommunity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPhysicianType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(comboBoxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -148,15 +164,19 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                     .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(comboBoxCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHospitalName)
-                    .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                    .addComponent(comboBoxHospName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSave)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -167,16 +187,18 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         String gender = (String) comboBoxGender.getSelectedItem();
         String physicianType = txtPhysicianType.getText();
         String house = txtHouse.getText();
+        String community = (String) comboBoxCommunity.getSelectedItem();
         String city = txtCity.getText();
-        String hospitalName = txtHospitalName.getText();
+        String hospitalName = (String) comboBoxHospName.getSelectedItem();
+
         
-        doctor.addNewDoctors(name, gender, physicianType, house, city, hospitalName);
+        doctor.addNewDoctors(name, gender, physicianType, house, community, city, hospitalName);
         
         String username = name;
         String password = name;
         String usertype = "doctor";
         System.out.println("=======CreateDoctorJPanel================="+username+"=="+password+"=="+usertype);
-        person.addNewPerson(username, password, usertype, name, ABORT, gender, house, city, physicianType, hospitalName);
+        person.addNewPerson(username, password, usertype, name, ABORT, gender, house, community, city, physicianType, hospitalName);
         for(Person per: Person.getPersonDirectory()){
             System.out.println(per.getName()+"       "+per.getPassword()+"              "+per.getCity());
         }
@@ -187,7 +209,10 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> comboBoxCommunity;
     private javax.swing.JComboBox<String> comboBoxGender;
+    private javax.swing.JComboBox<String> comboBoxHospName;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblHospitalName;
@@ -195,9 +220,18 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhysicianType;
     private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtHospitalName;
     private javax.swing.JTextField txtHouse;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhysicianType;
     // End of variables declaration//GEN-END:variables
+private void populateTable() {
+        
+         comboBoxCommunity.setModel(new DefaultComboBoxModel<String>(communityDirectory.toArray(new String[0])));
+
+    }
+private void populateTableHosp() {
+        
+         comboBoxHospName.setModel(new DefaultComboBoxModel<String>(hospitalDirectory.toArray(new String[0])));
+
+    }
 }

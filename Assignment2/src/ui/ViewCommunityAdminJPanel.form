@@ -27,9 +27,9 @@
                   <Component id="comboBoxGender" alignment="1" min="-2" pref="137" max="-2" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblCity" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCommunity" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="txtCity" min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="txtCommunity" min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
                       <Component id="lblGender" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -76,8 +76,8 @@
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="166" max="32767" attributes="0"/>
           </Group>
@@ -99,7 +99,7 @@
                 <Column editable="false" title="Name" type="java.lang.Object"/>
                 <Column editable="false" title="Gender" type="java.lang.Object"/>
                 <Column editable="false" title="House" type="java.lang.Object"/>
-                <Column editable="false" title="City" type="java.lang.Object"/>
+                <Column editable="false" title="Community" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -168,12 +168,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtHouse">
     </Component>
-    <Component class="javax.swing.JLabel" name="lblCity">
+    <Component class="javax.swing.JLabel" name="lblCommunity">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CITY"/>
+        <Property name="text" type="java.lang.String" value="COMMUNITY"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCity">
+    <Component class="javax.swing.JTextField" name="txtCommunity">
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>

@@ -13,17 +13,25 @@ public class CommunityAdmin {
     String name;
     String gender;
     String house;
+    String community;
     String city;
     static public List<CommunityAdmin> communityAdminDirectory= new ArrayList<CommunityAdmin>();
+    static public List<String> communityDirectory= new ArrayList<>();
     
     public CommunityAdmin(){
     }
+    
+    public CommunityAdmin(String community) {
+        this.community = community;
+    }
 
-    public CommunityAdmin(String name, String gender, String house, String city) {
+    public CommunityAdmin(String name, String gender, String house, String community, String city) {
         this.name = name;
         this.gender = gender;
         this.house = house;
+        this.community = community;
         this.city = city;
+        
     }
 
     @Override
@@ -64,6 +72,14 @@ public class CommunityAdmin {
         this.city = city;
     }
 
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+
     public static List<CommunityAdmin> getCommunityAdminDirectory() {
         return communityAdminDirectory;
     }
@@ -71,9 +87,19 @@ public class CommunityAdmin {
     public static void setCommunityAdminDirectory(List<CommunityAdmin> communityAdminDirectory) {
         CommunityAdmin.communityAdminDirectory = communityAdminDirectory;
     }
-    public void  addNewCommunityAdmin(String name, String gender, String house, String city) 
+
+    public static List<String> getCommunityDirectory() {
+        return communityDirectory;
+    }
+
+    public static void setCommunityDirectory(List<String> communityDirectory) {
+        CommunityAdmin.communityDirectory = communityDirectory;
+    }
+
+    
+    public void  addNewCommunityAdmin(String name, String gender, String house, String community, String city) 
     {
-        communityAdminDirectory.add(new CommunityAdmin(name, gender, house, city));
+        communityAdminDirectory.add(new CommunityAdmin(name, gender, house, community, city));
         for(CommunityAdmin ca:communityAdminDirectory){
             System.out.println("community name- "+ca.name+"     "+"community house- "+ca.house);
             System.out.println(getCommunityAdminDirectory());
@@ -87,5 +113,15 @@ public class CommunityAdmin {
     public void deleteCommunityAdmin(CommunityAdmin ca) {
         communityAdminDirectory.remove(ca);
     }
+    
+//    public void addCommunity(String commuity){
+//        communityDirectory.add(getCommunity());
+//        for(String cm:communityDirectory){
+//            System.out.println();
+//        }
+       
+//    }
+
+    
 }
     

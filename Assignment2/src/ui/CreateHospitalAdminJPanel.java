@@ -6,8 +6,15 @@ package ui;
 
 import static java.awt.image.ImageObserver.ABORT;
 import java.util.List;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.CommunityAdmin;
+import static model.CommunityAdmin.communityDirectory;
+import static model.CommunityAdmin.getCommunityDirectory;
 import model.HospitalAdmin;
+import static model.HospitalAdmin.hospitalDirectory;
 import model.Person;
 import static model.Person.personDirectory;
 
@@ -22,20 +29,21 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
      */
     Person person = new Person();
     HospitalAdmin hospitalAdmin = new HospitalAdmin();
+    CommunityAdmin communityAd = new CommunityAdmin();
     LoginJPanel loginPanel = new LoginJPanel();
     
     //--create new method to display city of Community admin in JLabel and this City name will be used for creating hospital Admin, Person --
-    public void getCity(){
-//        lblCaCity.setText(loginPanel.getCommunityAdminCity());
-        txtCity.setText(loginPanel.getCommunityAdminCity());
-    }
+//    public void getCommunity(){
+////        lblCaCity.setText(loginPanel.getCommunityAdminCity());
+//        comboBoxCommunity.setSelectedItem(loginPanel.getCommunityAdminCommunity());
+//    }
     
     public CreateHospitalAdminJPanel() {
         initComponents();
-        getCity();
+//        getCommunity();
+        populateTable();
     }
     
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,6 +64,8 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         comboGender = new javax.swing.JComboBox<>();
         txtCity = new javax.swing.JTextField();
+        lblCommunity = new javax.swing.JLabel();
+        comboBoxCommunity = new javax.swing.JComboBox<>();
 
         lblName.setText("NAME");
 
@@ -82,6 +92,15 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
 
         comboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
 
+        lblCommunity.setText("COMMUNITY");
+
+        comboBoxCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item1", "item1" }));
+        comboBoxCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCommunityActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,29 +110,29 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(302, 302, 302)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblCity)
-                                    .addGap(61, 61, 61)
-                                    .addComponent(txtCity))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(105, 105, 105)
-                                    .addComponent(btnSave)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblHospitalName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblGender))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblHospitalName, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblGender)
+                                        .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(lblCommunity))
                                 .addGap(61, 61, 61)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtHospitalName)
-                                    .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(comboGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtCity)
+                                    .addComponent(comboBoxCommunity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(409, 409, 409)
+                        .addComponent(btnSave)))
                 .addContainerGap(317, Short.MAX_VALUE))
         );
 
@@ -138,13 +157,17 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHospitalName)
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCommunity)
+                    .addComponent(comboBoxCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(30, 30, 30)
                 .addComponent(btnSave)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCity, lblGender, lblHospitalName, lblName});
@@ -169,35 +192,40 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         String gender = (String) comboGender.getSelectedItem();
         String hospitalName = txtHospitalName.getText();
+        String community = (String) comboBoxCommunity.getSelectedItem();
         String city = txtCity.getText();
 //        String city = lblCaCity.getText();
-        System.out.println("===========Create Hospital ===============");
-        System.out.println(loginPanel.getCommunityAdminCity()+"            "+city);
-        
-        
-        hospitalAdmin.addNewHospitalAdmin(name, gender, hospitalName, city);
+
+        hospitalAdmin.addNewHospitalAdmin(name, gender, hospitalName, community, city);
         
         String username = name;
         String password = name;
         String usertype = "hospital admin";
         System.out.println("=======CreateHospitalAdminJPanel================="+username+"=="+password+"=="+usertype);
-        personDirectory.add(new Person(username, password, usertype, name, 0, gender, "NoHouse", city, "NoPhysicianType", hospitalName));
+        personDirectory.add(new Person(username, password, usertype, name, 0, gender, "NoHouse", community, city, "NoPhysicianType", hospitalName));
         for(Person per: Person.getPersonDirectory()){
             System.out.println(per.getName()+per.getPassword()+per.getCity());
         }
         JOptionPane.showMessageDialog(this, "Hospital Admin added successfuly");
+        hospitalDirectory.add(hospitalName);
     }//GEN-LAST:event_btnSaveActionPerformed
     
     private void txtHospitalNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHospitalNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHospitalNameActionPerformed
 
+    private void comboBoxCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCommunityActionPerformed
+        // TODO add your handling code here
+    }//GEN-LAST:event_comboBoxCommunityActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> comboBoxCommunity;
     private javax.swing.JComboBox<String> comboGender;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblHospitalName;
     private javax.swing.JLabel lblName;
@@ -206,4 +234,9 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtHospitalName;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
-}
+    private void populateTable() {
+        
+         comboBoxCommunity.setModel(new DefaultComboBoxModel<String>(communityDirectory.toArray(new String[0])));
+
+    }
+       }

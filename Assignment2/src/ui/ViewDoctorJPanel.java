@@ -6,6 +6,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static model.CommunityAdmin.communityDirectory;
 import model.Doctor;
 import model.Person;
 
@@ -42,8 +43,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
         lblHouse = new javax.swing.JLabel();
-        lblCity = new javax.swing.JLabel();
-        txtCity = new javax.swing.JTextField();
+        lblCommunity = new javax.swing.JLabel();
+        txtCommunity = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         comboGender = new javax.swing.JComboBox<>();
@@ -61,7 +62,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Gender", "PhysicianType", "House", "City", "HospitalName"
+                "Name", "Gender", "PhysicianType", "House", "Community", "HospitalName"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -85,7 +86,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
 
         lblHouse.setText("HOUSE");
 
-        lblCity.setText("CITY");
+        lblCommunity.setText("COMMUNITY");
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +120,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblGender)
-                    .addComponent(lblCity)
+                    .addComponent(lblCommunity)
                     .addComponent(lblHospitalName)
                     .addComponent(lblHouse)
                     .addComponent(lblPhysicianType))
@@ -127,7 +128,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,7 +144,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboGender, txtCity, txtHospitalName, txtHouse, txtName, txtPhysicianType});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboGender, txtCommunity, txtHospitalName, txtHouse, txtName, txtPhysicianType});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,17 +172,17 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
                             .addComponent(lblHouse)
                             .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(lblCity))
+                        .addComponent(lblCommunity))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHospitalName)
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboGender, txtCity, txtHospitalName, txtHouse, txtName, txtPhysicianType});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboGender, txtCommunity, txtHospitalName, txtHouse, txtName, txtPhysicianType});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -221,7 +222,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         comboGender.setSelectedItem(selectedDoctor.getGender());
         txtPhysicianType.setText(selectedDoctor.getPhysicianType());
         txtHouse.setText(selectedDoctor.getHouse());
-        txtCity.setText(selectedDoctor.getCity());
+        txtCommunity.setText(selectedDoctor.getCommunity());
         txtHospitalName.setText(selectedDoctor.getHospitalName());
         
     }//GEN-LAST:event_tblDoctorMouseClicked
@@ -238,7 +239,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             String physicianType = txtPhysicianType.getText();
             String house = txtHouse.getText();
             String hospitalName = txtHospitalName.getText();
-            String city = txtCity.getText();
+            String community = txtCommunity.getText();
 
             Doctor updateDoc = new Doctor();            
             //-- set updated value on the table row
@@ -247,7 +248,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             updateDoc.setPhysicianType(physicianType);
             updateDoc.setHouse(house);
             updateDoc.setHospitalName(hospitalName);
-            updateDoc.setCity(city);
+            updateDoc.setCommunity(community);
+            
             doc.updateDoctor(updateDoc,selectedRowIndex);
             
             //UPDATE DOCTOR DATA IN PERSON DIRECTORY
@@ -259,12 +261,13 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             updatePerson.setPhysicianType(physicianType);
             updatePerson.setHouse(house);
             updatePerson.setHospitalName(hospitalName);
-            updatePerson.setCity(city);
+            updatePerson.setCommunity(community);
             person.updatePerson(person, selectedRowIndex);
             
+            communityDirectory.set(selectedRowIndex,community);
             populateTable();
 
-            JOptionPane.showMessageDialog(this, "Data Updated Successfully ");
+            JOptionPane.showMessageDialog(this, "Doctor Updated Successfully ");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -291,14 +294,14 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboGender;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblHospitalName;
     private javax.swing.JLabel lblHouse;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhysicianType;
     private javax.swing.JTable tblDoctor;
-    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtCommunity;
     private javax.swing.JTextField txtHospitalName;
     private javax.swing.JTextField txtHouse;
     private javax.swing.JTextField txtName;
@@ -315,7 +318,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             row[1] = doc.getGender();
             row[2] = doc.getPhysicianType();
             row[3] = doc.getHouse();
-            row[4] = doc.getCity();
+            row[4] = doc.getCommunity();
             row[5] = doc.getHospitalName();
             model.addRow(row);
         }

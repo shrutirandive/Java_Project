@@ -146,7 +146,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        person.addNewPerson("systemAdmin", "systemAdmin", "system admin", "System Admin", 20, "Female", "Huntington Ave", "Boston", "NoPhysicianType", "NoHospitalName");
+        person.addNewPerson("systemAdmin", "systemAdmin", "system admin", "System Admin", 20, "Female", "881","Huntington Ave", "Boston", "NoPhysicianType", "NoHospitalName");
         
         LoginJPanel login = new LoginJPanel();
         splitPane.setRightComponent(login);

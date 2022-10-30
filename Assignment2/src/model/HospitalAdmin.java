@@ -15,16 +15,23 @@ public class HospitalAdmin {
     String name;
     String gender;
     String hospitalName;
+    String community;
     String city;
-    static public List<HospitalAdmin> hospitalDirectory= new ArrayList<HospitalAdmin>();
-
+    static public List<HospitalAdmin> hospitalAdminDirectory= new ArrayList<HospitalAdmin>();
+    static public List<String> hospitalDirectory= new ArrayList<>();
+    
     public HospitalAdmin(){
     }
+
+    public HospitalAdmin(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
     
-    public HospitalAdmin(String name, String gender, String hospitalName, String city) {
+    public HospitalAdmin(String name, String gender, String hospitalName, String community, String city) {
         this.name = name;
         this.gender = gender;
         this.hospitalName = hospitalName;
+        this.community = community;
         this.city = city;
     }
 
@@ -58,6 +65,14 @@ public class HospitalAdmin {
         this.hospitalName = hospitalName;
     }
 
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+
     public String getCity() {
         return city;
     }
@@ -66,31 +81,40 @@ public class HospitalAdmin {
         this.city = city;
     }
 
-    public static List<HospitalAdmin> getHospitalDirectory() {
+    public static List<HospitalAdmin> getHospitalAdminDirectory() {
+        return hospitalAdminDirectory;
+    }
+
+    public static void setHospitalAdminDirectory(List<HospitalAdmin> hospitalAdminDirectory) {
+        HospitalAdmin.hospitalAdminDirectory = hospitalAdminDirectory;
+    }
+
+    public static List<String> getHospitalDirectory() {
         return hospitalDirectory;
     }
 
-    public static void setHospitalDirectory(List<HospitalAdmin> hospitalDirectory) {
+    public static void setHospitalDirectory(List<String> hospitalDirectory) {
         HospitalAdmin.hospitalDirectory = hospitalDirectory;
     }
+
     
-    public void  addNewHospitalAdmin(String name, String gender, String hospitalName, String city) 
+    public void  addNewHospitalAdmin(String name, String gender, String hospitalName, String community, String city) 
     {
         
-        hospitalDirectory.add(new HospitalAdmin(name, gender, hospitalName, city));
-        for(HospitalAdmin ha:hospitalDirectory){
+        hospitalAdminDirectory.add(new HospitalAdmin(name, gender, hospitalName, community, city));
+        for(HospitalAdmin ha:hospitalAdminDirectory){
             System.out.println(ha.name+ha.hospitalName);
-            System.out.println(getHospitalDirectory());
-            System.out.println(hospitalDirectory.size()-1);
+            System.out.println(getHospitalAdminDirectory());
+            System.out.println(hospitalAdminDirectory.size()-1);
         }
         //return persondirectory;
     }
     public void updateHospitalAdmin(HospitalAdmin ha, int haIndex){
-        hospitalDirectory.set(haIndex, ha);
+        hospitalAdminDirectory.set(haIndex, ha);
     }
 
     public void deleteHospitalAdmin(HospitalAdmin ha) {
-        hospitalDirectory.remove(ha);
+        hospitalAdminDirectory.remove(ha);
     }
    
 }

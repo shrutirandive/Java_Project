@@ -109,9 +109,9 @@ public class DoctorListPatientJPanel extends javax.swing.JPanel {
         Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex, 0);
         System.out.println("Doctor List Patient JPanel   "+selectedDoctor);
              
-        doc.patientAddDoctors(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
+        doc.patientAddDoctors(selectedDoctor.getName(), selectedDoctor.getGender(), selectedDoctor.getPhysicianType(), selectedDoctor.getHouse(), selectedDoctor.getCommunity(), selectedDoctor.getCity(), selectedDoctor.getHospitalName());
         
-        app.bookAppointment.add(new Appointment(selectedDoctor.getName(), loginPanel.getPatientName(),  loginPanel.getPatientCity(),loginPanel.getPatientAge()));
+        app.bookAppointment.add(new Appointment(selectedDoctor.getName(), loginPanel.getPatientName(),  loginPanel.getPatientCommunity(),loginPanel.getPatientAge()));
         for(Appointment appo:bookAppointment){
             System.out.println("=====APPOINTMENT ===========");
             System.out.println(appo.getDocName()+appo.getPatientName());
@@ -132,15 +132,16 @@ public class DoctorListPatientJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Doctor doc: Doctor.getDoctorDirectory()){
-            if(doc.getCity().equals(loginPanel.getPatientCity())){
+            if(doc.getCommunity().equals(loginPanel.getPatientCommunity())){
 //                System.out.println("Patient City= "+loginPanel.getPatientCity());
             Object[] row = new Object[6];
             row[0] = doc;
             row[1] = doc.getGender();
             row[2] = doc.getPhysicianType();
             row[3] = doc.getHouse();
-            row[4] = doc.getCity();
-            row[5] = doc.getHospitalName();
+            row[4] = doc.getCommunity();
+            row[5] = doc.getCity();
+            row[6] = doc.getHospitalName();
             
             model.addRow(row);
             }

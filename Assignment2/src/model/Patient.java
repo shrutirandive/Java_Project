@@ -16,6 +16,7 @@ public class Patient {
     int age;
     String gender;
     String house;
+    String community;
     String city;
     
     static public List<Patient> patientDirectory= new ArrayList<Patient>();
@@ -25,11 +26,12 @@ public class Patient {
     public Patient() {
     }
     
-    public Patient(String name, int age, String gender, String house, String city) {
+    public Patient(String name, int age, String gender, String house, String community, String city) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.house = house;
+        this.community = community;
         this.city = city;
     }
 
@@ -71,6 +73,14 @@ public class Patient {
         this.house = house;
     }
 
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+
     public String getCity() {
         return city;
     }
@@ -88,12 +98,9 @@ public class Patient {
     }
     
     
-    public void  addNewPatients(String name, int age, String gender, String house, String city) 
+    public void  addNewPatients(String name, int age, String gender, String house, String community, String city) 
     {
-//        vitalsigns = new VitalSigns();
-//        List<VitalSigns> vitalsignsList = vitalsigns.getList();
-        
-        patientDirectory.add(new Patient(name, age, gender, house, city));
+        patientDirectory.add(new Patient(name, age, gender, house, community, city));
         System.out.println("Patient Added Successfully !!");
     }
     public void updatePatient(Patient patient, int patientIndex){

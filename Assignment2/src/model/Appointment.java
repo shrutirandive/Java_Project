@@ -14,14 +14,14 @@ import java.util.List;
 public class Appointment {
     String docName;
     String patientName;
-    String patientCity;
+    String patientCommunity;
     int patientAge;
     VitalSigns vs;
 
-    public Appointment(String docName, String patientName, String patientCity, int patientAge, VitalSigns vs) {
+    public Appointment(String docName, String patientName, String patientCommunity, int patientAge, VitalSigns vs) {
         this.docName = docName;
         this.patientName = patientName;
-        this.patientCity = patientCity;
+        this.patientCommunity = patientCommunity;
         this.patientAge = patientAge;
         this.vs = vs;
     }
@@ -30,10 +30,10 @@ public class Appointment {
  
     static public List<Appointment> bookAppointment= new ArrayList<Appointment>();
     
-    public Appointment(String docName, String patientName, String patientCity, int patientAge) {
+    public Appointment(String docName, String patientName, String patientCommunity, int patientAge) {
         this.docName = docName;
         this.patientName = patientName;
-        this.patientCity = patientCity;
+        this.patientCommunity = patientCommunity;
         this.patientAge = patientAge;
     }
 
@@ -62,12 +62,12 @@ public class Appointment {
         this.patientName = patientName;
     }
 
-    public String getPatientCity() {
-        return patientCity;
+    public String getPatientCommunity() {
+        return patientCommunity;
     }
 
-    public void setPatientCity(String patientCity) {
-        this.patientCity = patientCity;
+    public void setPatientCommunity(String patientCity) {
+        this.patientCommunity = patientCommunity;
     }
 
     public int getPatientAge() {

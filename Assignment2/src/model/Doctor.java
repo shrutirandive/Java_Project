@@ -18,6 +18,7 @@ public class Doctor {
     String gender;
     String physicianType;
     String house;
+    String community;
     String city;
     String patient;
     //hospital name can be extracted from hospital admin profile also instaed of taking from textbox
@@ -31,11 +32,12 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(String name, String gender, String physicianType, String house, String city, String hospitalName) {
+    public Doctor(String name, String gender, String physicianType, String house, String community, String city, String hospitalName) {
         this.name = name;
         this.gender = gender;
         this.physicianType = physicianType;
         this.house = house;
+        this.community = community;
         this.city = city;
         this.hospitalName = hospitalName;
     }
@@ -77,6 +79,14 @@ public class Doctor {
 
     public void setHouse(String house) {
         this.house = house;
+    }
+
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
     }
 
     public String getCity() {
@@ -127,9 +137,9 @@ public class Doctor {
         this.patient = patient;
     }
     
-    public void  addNewDoctors(String name, String gender, String physicianType, String house, String city, String hospitalName) 
+    public void  addNewDoctors(String name, String gender, String physicianType, String house, String community, String city, String hospitalName) 
     {
-        doctorDirectory.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
+        doctorDirectory.add(new Doctor(name, gender, physicianType, house, community, city, hospitalName));
         System.out.println(doctorDirectory.size()-1);
         System.out.println("Doctor Added Successfully !!");
     }
@@ -141,14 +151,14 @@ public class Doctor {
     public void deleteDoctor(Doctor doc) {
         doctorDirectory.remove(doc);
     }
-    public void addDoctorInHospital(String name, String gender, String physicianType, String house, String city, String hospitalName){
+    public void addDoctorInHospital(String name, String gender, String physicianType, String house, String community, String city, String hospitalName){
 //        Doctor docHosp = new Doctor();
-        doctorInHospitalDirectory.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
+        doctorInHospitalDirectory.add(new Doctor(name, gender, physicianType, house, community, city, hospitalName));
         System.out.println("Doctor Added Successfully in Hospital");
         System.out.println(doctorInHospitalDirectory.size()-1);   
     }
-    public void patientAddDoctors(String name, String gender, String physicianType, String house, String city, String hospitalName){
-        doctorBooked.add(new Doctor(name, gender, physicianType, house, city, hospitalName));
+    public void patientAddDoctors(String name, String gender, String physicianType, String house, String community, String city, String hospitalName){
+        doctorBooked.add(new Doctor(name, gender, physicianType, house, community, city, hospitalName));
         System.out.println("Appointment Booked ");
         
     }

@@ -156,7 +156,7 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
         
         Appointment selectedPatient = (Appointment) model.getValueAt(selectedRowIndex, 0);
         System.out.println("=====VIEW PATIENTS FOR DOCTORS==========");
-        System.out.println("Patient name= "+selectedPatient.getPatientName()+"Patient city= "+selectedPatient.getPatientCity());
+        System.out.println("Patient name= "+selectedPatient.getPatientName()+"Patient city= "+selectedPatient.getPatientCommunity());
         
         txtPatientName.setText(selectedPatient.getPatientName());
     }//GEN-LAST:event_tblViewPatientsMouseClicked
@@ -195,7 +195,7 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
         for(Appointment docAppoint: Appointment.getBookAppointment()){
             Object[] row = new Object[3];
             row[0] = docAppoint;
-            row[1] = docAppoint.getPatientCity();
+            row[1] = docAppoint.getPatientCommunity();
             row[2] = docAppoint.getPatientAge();
             
             model.addRow(row);

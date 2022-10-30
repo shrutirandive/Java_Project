@@ -6,6 +6,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static model.CommunityAdmin.communityDirectory;
 import model.Patient;
 import model.Person;
 
@@ -43,12 +44,12 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
         comboGender = new javax.swing.JComboBox<>();
         lblAge = new javax.swing.JLabel();
         lblHouse = new javax.swing.JLabel();
-        lblCity = new javax.swing.JLabel();
+        lblCommunity = new javax.swing.JLabel();
         txtHouse = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        txtCity = new javax.swing.JTextField();
+        txtCommunity = new javax.swing.JTextField();
 
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -58,7 +59,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Age", "Gender", "House", "City"
+                "Name", "Age", "Gender", "House", "Community"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -86,7 +87,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
 
         lblHouse.setText("HOUSE");
 
-        lblCity.setText("CITY");
+        lblCommunity.setText("COMMUNITY");
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +118,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
                             .addComponent(lblAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblHouse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -125,7 +126,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtCity)
+                                    .addComponent(txtCommunity)
                                     .addComponent(txtHouse, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
                                     .addComponent(comboGender, javax.swing.GroupLayout.Alignment.LEADING, 0, 106, Short.MAX_VALUE))
@@ -164,8 +165,8 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
                     .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCity)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCommunity)
+                    .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(126, 126, 126))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -186,7 +187,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
         comboGender.setSelectedItem(selectedPatient.getGender());
         txtAge.setText(Integer.toString(selectedPatient.getAge()));
         txtHouse.setText(selectedPatient.getHouse());
-        txtCity.setText(selectedPatient.getCity());
+        txtCommunity.setText(selectedPatient.getCommunity());
         
     }//GEN-LAST:event_tblPatientMouseClicked
 
@@ -201,7 +202,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
             int age = Integer.parseInt(txtAge.getText());
             String gender = (String) comboGender.getSelectedItem();
             String house = txtHouse.getText();
-            String city = txtCity.getText();
+            String community = txtCommunity.getText();
             
             //UPDATE PATIENTS DATA IN PATIENT DIRECTORY
             Patient updatePatient = new Patient();
@@ -211,7 +212,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
             updatePatient.setGender(gender);
             updatePatient.setAge(age);
             updatePatient.setHouse(house);
-            updatePatient.setCity(city);
+            updatePatient.setCommunity(community);
             patient.updatePatient(updatePatient, selectedRowIndex);
             
             
@@ -223,11 +224,13 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
             updatePerson.setGender(gender);
             updatePerson.setAge(age);
             updatePerson.setHouse(house);
-            updatePerson.setCity(city);
+            updatePerson.setCommunity(community);
             person.updatePerson(person, selectedRowIndex);
             
+            communityDirectory.set(selectedRowIndex,community);
+            
             populateTable();
-            JOptionPane.showMessageDialog(this, "Data Updated Successfully ");
+            JOptionPane.showMessageDialog(this, "Patient Data Updated Successfully ");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -259,13 +262,13 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboGender;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
-    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblHouse;
     private javax.swing.JLabel lblName;
     private javax.swing.JTable tblPatient;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtCommunity;
     private javax.swing.JTextField txtHouse;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
@@ -280,7 +283,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
             row[1] = pa.getAge();
             row[2] = pa.getGender();
             row[3] = pa.getHouse();
-            row[4] = pa.getCity();
+            row[4] = pa.getCommunity();
             model.addRow(row);}
         
     }

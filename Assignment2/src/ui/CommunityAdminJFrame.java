@@ -5,6 +5,8 @@
 
 package ui;
 
+import java.util.List;
+
 /**
  *
  * @author user
@@ -228,5 +230,9 @@ public class CommunityAdminJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
+
+    List getCommunityDirectory() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

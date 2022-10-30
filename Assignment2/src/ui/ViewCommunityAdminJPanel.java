@@ -6,6 +6,7 @@ package ui;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.CommunityAdmin;
+import static model.CommunityAdmin.communityDirectory;
 /**
  *
  * @author user
@@ -38,8 +39,8 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
         comboBoxGender = new javax.swing.JComboBox<>();
         lblHouse = new javax.swing.JLabel();
         txtHouse = new javax.swing.JTextField();
-        lblCity = new javax.swing.JLabel();
-        txtCity = new javax.swing.JTextField();
+        lblCommunity = new javax.swing.JLabel();
+        txtCommunity = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
@@ -51,7 +52,7 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Gender", "House", "City"
+                "Name", "Gender", "House", "Community"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -77,7 +78,7 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
 
         lblHouse.setText("HOUSE");
 
-        lblCity.setText("CITY");
+        lblCommunity.setText("COMMUNITY");
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -107,9 +108,9 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
                     .addComponent(comboBoxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblCity)
+                            .addComponent(lblCommunity)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblGender)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblHouse)
@@ -146,8 +147,8 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
                     .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCity)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCommunity)
+                    .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(166, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -167,7 +168,7 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
         txtName.setText(selectedCommunityAdmin.getName());
         comboBoxGender.setSelectedItem(selectedCommunityAdmin.getGender());
         txtHouse.setText(selectedCommunityAdmin.getHouse());
-        txtCity.setText(selectedCommunityAdmin.getCity());
+        txtCommunity.setText(selectedCommunityAdmin.getCommunity());
     }//GEN-LAST:event_tblCommunityAdminsMouseClicked
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -180,16 +181,17 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
             String name = txtName.getText();
             String gender = (String) comboBoxGender.getSelectedItem();
             String house = txtHouse.getText();
-            String city = txtCity.getText();
+            String community = txtCommunity.getText();
 
             CommunityAdmin updateCommunityAdmin = new CommunityAdmin();
             //-- set updated value on the table row
             updateCommunityAdmin.setName(name);
             updateCommunityAdmin.setGender(gender);
             updateCommunityAdmin.setHouse(house);
-            updateCommunityAdmin.setCity(city);
+            updateCommunityAdmin.setCommunity(community);
             
             ca.updateCommunityAdmin(updateCommunityAdmin,selectedRowIndex);
+            communityDirectory.set(selectedRowIndex,community);
             populateTable();
 
             JOptionPane.showMessageDialog(this, "Data Updated Successfully ");
@@ -218,12 +220,12 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> comboBoxGender;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblHouse;
     private javax.swing.JLabel lblName;
     private javax.swing.JTable tblCommunityAdmins;
-    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtCommunity;
     private javax.swing.JTextField txtHouse;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
@@ -238,7 +240,7 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
             row[0] = com;
             row[1] = com.getGender();
             row[2] = com.getHouse();
-            row[3] = com.getCity();
+            row[3] = com.getCommunity();
             
             model.addRow(row);
         }

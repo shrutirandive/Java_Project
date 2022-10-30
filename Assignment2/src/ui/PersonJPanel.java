@@ -81,7 +81,7 @@ public class PersonJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Person per: Person.getPersonDirectory()){
-            if(per.getCity().equals(LoginJPanel.getCommunityAdminCity())){
+            if(per.getCity().equals(loginPanel.getCommunityAdminCommunity())){
 //                System.out.println("Patient City= "+loginPanel.getPatientCity());
             Object[] row = new Object[5];
             row[0] = per;

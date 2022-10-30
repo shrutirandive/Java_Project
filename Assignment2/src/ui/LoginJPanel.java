@@ -23,24 +23,24 @@ public class LoginJPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    public static String communityAdminCity;
+    public static String communityAdminCommunity;
 
-    public static String getCommunityAdminCity() {
-        return communityAdminCity;
+    public static String getCommunityAdminCommunity() {
+        return communityAdminCommunity;
     }
 
-    public static void setCommunityAdminCity(String CommunityAdminCity) {
-        LoginJPanel.communityAdminCity = CommunityAdminCity;
+    public static void setCommunityAdminCommunity(String CommunityAdminCommunity) {
+        LoginJPanel.communityAdminCommunity = CommunityAdminCommunity;
     }
     
-    public static String patientCity;
+    public static String patientCommunity;
 
-    public static String getPatientCity() {
-        return patientCity;
+    public static String getPatientCommunity() {
+        return patientCommunity;
     }
 
-    public static void setPatientCity(String patientCity) {
-        LoginJPanel.patientCity = patientCity;
+    public static void setPatientCommunity(String patientCommunity) {
+        LoginJPanel.patientCommunity = patientCommunity;
     }
     public static String patientName;
 
@@ -70,6 +70,15 @@ public class LoginJPanel extends javax.swing.JPanel {
         LoginJPanel.doctorName = doctorName;
     }
     
+    public static String hospitalName;
+
+    public static String getHospitalName() {
+        return hospitalName;
+    }
+
+    public static void setHospitalName(String HospitalName) {
+        LoginJPanel.hospitalName = HospitalName;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -161,12 +170,13 @@ public class LoginJPanel extends javax.swing.JPanel {
                     systemAdmin.setVisible(true);                    
                 }
                 else if(person.getUserType().equals("community admin")){
-                    communityAdminCity = person.getCity();
-                    System.out.println("Community Admin City= "+communityAdminCity);
+                    communityAdminCommunity = person.getCommunity();
+                    System.out.println("Community Admin Community= "+communityAdminCommunity);
                     CommunityAdminJFrame communityAdmin = new CommunityAdminJFrame();
                     communityAdmin.setVisible(true);
                 }
                 else if(person.getUserType().equals("hospital admin")){
+                    hospitalName = person.getHospitalName();
                     HospitalAdminJFrame hospAdmin = new HospitalAdminJFrame();
                     hospAdmin.setVisible(true); 
                     
@@ -180,10 +190,10 @@ public class LoginJPanel extends javax.swing.JPanel {
                     doctor.setVisible(true);
                 }
                 else if(person.getUserType().equals("patient")){
-                    patientCity = person.getCity();
+                    patientCommunity = person.getCommunity();
                     patientAge = person.getAge();
                     patientName = person.getName();
-                    System.out.println("Patient City= "+patientCity);
+                    System.out.println("Patient Community= "+patientCommunity);
                     PatientJFrame patient = new PatientJFrame();
                     patient.setVisible(true);
                 }

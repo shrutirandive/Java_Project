@@ -21,6 +21,7 @@ public class Person {
     int age;
     String gender;
     String house;
+    String community;
     String city;
     //Doctor
     String physicianType;
@@ -34,7 +35,7 @@ public class Person {
     public Person() {
     }
 
-    public Person(String userName, String password, String userType, String name, int age, String gender, String house, String city, String physicianType, String hospitalName) {
+    public Person(String userName, String password, String userType, String name, int age, String gender, String house, String community, String city, String physicianType, String hospitalName) {
         this.userName = userName;
         this.password = password;
         this.userType = userType;
@@ -42,6 +43,7 @@ public class Person {
         this.age = age;
         this.gender = gender;
         this.house = house;
+        this.community = community;
         this.city = city;
         this.physicianType = physicianType;
         this.hospitalName = hospitalName;
@@ -110,6 +112,14 @@ public class Person {
         this.house = house;
     }
 
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+
     public String getCity() {
         return city;
     }
@@ -143,9 +153,9 @@ public class Person {
     }
     
     
-    public void  addNewPerson(String userName, String password, String userType, String name, int age, String gender, String house, String city, String physicianType, String hospitalName) 
+    public void  addNewPerson(String userName, String password, String userType, String name, int age, String gender, String house, String community, String city, String physicianType, String hospitalName) 
     {
-        personDirectory.add(new Person(userName, password, userType, name, age, gender, house, city, physicianType, hospitalName));
+        personDirectory.add(new Person(userName, password, userType, name, age, gender, house, community, city, physicianType, hospitalName));
         System.out.println(personDirectory.size()-1);
         System.out.println("Added Successfully !!");
     }
@@ -153,9 +163,8 @@ public class Person {
         personDirectory.set(perIndex, per);
     }
 
-    public void deleteDoctor(Person per) {
+    public void deletePerson(Person per) {
         personDirectory.remove(per);
     }
-    
-            
+           
 }

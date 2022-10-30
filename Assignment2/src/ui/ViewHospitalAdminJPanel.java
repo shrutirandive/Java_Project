@@ -8,6 +8,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static model.CommunityAdmin.communityDirectory;
 import model.HospitalAdmin;
 
 /**
@@ -41,8 +42,8 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
         lblHospitalName = new javax.swing.JLabel();
-        lblCity = new javax.swing.JLabel();
-        txtCity = new javax.swing.JTextField();
+        lblCommunity = new javax.swing.JLabel();
+        txtCommunity = new javax.swing.JTextField();
         txtHospitalName = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -56,7 +57,7 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Gender", "HospitalName", "City"
+                "Name", "Gender", "HospitalName", "Community"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -80,7 +81,7 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
 
         lblHospitalName.setText("HOSPITAL NAME");
 
-        lblCity.setText("CITY");
+        lblCommunity.setText("COMMUNITY");
 
         txtHospitalName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +117,7 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblHospitalName)
                                 .addGap(18, 18, 18)
@@ -129,7 +130,7 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(lblGender)
                                 .addGap(18, 18, 18)
                                 .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblCity)
+                            .addComponent(lblCommunity)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -141,9 +142,9 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
                         .addContainerGap(417, Short.MAX_VALUE))))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtHospitalName, txtName});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCommunity, txtHospitalName, txtName});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCity, lblGender, lblHospitalName, lblName});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCommunity, lblGender, lblHospitalName, lblName});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,14 +167,14 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCity)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCommunity)
+                    .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCity, txtHospitalName, txtName});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCommunity, txtHospitalName, txtName});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCity, lblGender, lblHospitalName, lblName});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCommunity, lblGender, lblHospitalName, lblName});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,7 +197,7 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
         txtName.setText(selectedHospitalAdmin.getName());
         comboGender.setSelectedItem(selectedHospitalAdmin.getGender());
         txtHospitalName.setText(selectedHospitalAdmin.getHospitalName());
-        txtCity.setText(selectedHospitalAdmin.getCity());
+        txtCommunity.setText(selectedHospitalAdmin.getCommunity());
 
     }//GEN-LAST:event_tblHospitalAdminsMouseClicked
 
@@ -210,15 +211,17 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
             String name = txtName.getText();
             String gender = (String) comboGender.getSelectedItem();
             String hospitalName = txtHospitalName.getText();
-            String city = txtCity.getText();
+            String community = txtCommunity.getText();
             
             HospitalAdmin updateHospitalAdmin = new HospitalAdmin();
             //-- set updated value on the table row
             updateHospitalAdmin.setName(name);
             updateHospitalAdmin.setGender(gender);
             updateHospitalAdmin.setHospitalName(hospitalName);
-            updateHospitalAdmin.setCity(city);
+            updateHospitalAdmin.setCommunity(community);
             ha.updateHospitalAdmin(updateHospitalAdmin,selectedRowIndex);
+            
+            communityDirectory.set(selectedRowIndex,community);
             populateTable();
             
             JOptionPane.showMessageDialog(this, "Data Updated Successfully ");
@@ -247,12 +250,12 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> comboGender;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblHospitalName;
     private javax.swing.JLabel lblName;
     private javax.swing.JTable tblHospitalAdmins;
-    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtCommunity;
     private javax.swing.JTextField txtHospitalName;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
@@ -261,12 +264,12 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblHospitalAdmins.getModel();
         model.setRowCount(0);
         
-        for(HospitalAdmin ha: HospitalAdmin.getHospitalDirectory()){
+        for(HospitalAdmin ha: HospitalAdmin.getHospitalAdminDirectory()){
             Object[] row = new Object[4];
             row[0] = ha;
             row[1] = ha.getGender();
             row[2] = ha.getHospitalName();
-            row[3] = ha.getCity();
+            row[3] = ha.getCommunity();
             model.addRow(row);
         }
         
