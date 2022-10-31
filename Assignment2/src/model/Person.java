@@ -13,6 +13,7 @@ import java.util.List;
  */
 
 public class Person {
+    String id;
     String userName;
     String password;
     String userType;
@@ -27,15 +28,14 @@ public class Person {
     String physicianType;
     //hospitalAdmin
     String hospitalName;
-    
-    
-    
+   
     static public List<Person> personDirectory= new ArrayList<Person>();
     
     public Person() {
     }
 
-    public Person(String userName, String password, String userType, String name, int age, String gender, String house, String community, String city, String physicianType, String hospitalName) {
+    public Person(String id, String userName, String password, String userType, String name, int age, String gender, String house, String community, String city, String physicianType, String hospitalName) {
+        this.id = id;
         this.userName = userName;
         this.password = password;
         this.userType = userType;
@@ -54,6 +54,14 @@ public class Person {
     public String toString() {
         return userType;
 //        return "Person{" + "userName=" + userName + ", password=" + password + ", userType=" + userType + ", name=" + name + ", age=" + age + ", gender=" + gender + ", house=" + house + ", city=" + city + ", physicianType=" + physicianType + ", hospitalName=" + hospitalName + '}';
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -152,10 +160,9 @@ public class Person {
         Person.personDirectory = personDirectory;
     }
     
-    
-    public void  addNewPerson(String userName, String password, String userType, String name, int age, String gender, String house, String community, String city, String physicianType, String hospitalName) 
-    {
-        personDirectory.add(new Person(userName, password, userType, name, age, gender, house, community, city, physicianType, hospitalName));
+    public void  addNewPerson(String id, String userName, String password, String userType, String name, int age, String gender, String house, String community, String city, String physicianType, String hospitalName) 
+    {  
+        personDirectory.add(new Person(id, userName, password, userType, name, age, gender, house, community, city, physicianType, hospitalName));
         System.out.println(personDirectory.size()-1);
         System.out.println("Added Successfully !!");
     }

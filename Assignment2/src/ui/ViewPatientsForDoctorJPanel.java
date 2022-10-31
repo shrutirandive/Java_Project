@@ -45,7 +45,12 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
         btnAddVitalSigns = new javax.swing.JButton();
         lblPatientName = new javax.swing.JLabel();
         txtPatientName = new javax.swing.JTextField();
+        lblTitle = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        tblViewPatients.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        tblViewPatients.setForeground(new java.awt.Color(51, 51, 255));
         tblViewPatients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -54,7 +59,7 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Patient Name", "City", "Age"
+                "Patient Name", "Community", "Age"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -72,12 +77,27 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblViewPatients);
 
-        jLabel1.setText("Vital Signs");
+        jLabel1.setFont(new java.awt.Font("Centaur", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel1.setText("Add Vital Signs");
 
+        txtTemperature.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtTemperature.setForeground(new java.awt.Color(51, 51, 255));
+
+        lblTemperature.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblTemperature.setForeground(new java.awt.Color(51, 51, 255));
         lblTemperature.setText("Temperature");
 
+        lblBloodPressure.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblBloodPressure.setForeground(new java.awt.Color(51, 51, 255));
         lblBloodPressure.setText("Blood Pressure");
 
+        txtBloodPressure.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtBloodPressure.setForeground(new java.awt.Color(51, 51, 255));
+
+        btnAddVitalSigns.setBackground(new java.awt.Color(155, 211, 248));
+        btnAddVitalSigns.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        btnAddVitalSigns.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-1-icon.png"))); // NOI18N
         btnAddVitalSigns.setText("ADD");
         btnAddVitalSigns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +105,16 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblPatientName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblPatientName.setForeground(new java.awt.Color(51, 51, 255));
         lblPatientName.setText("Patient Name");
+
+        txtPatientName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtPatientName.setForeground(new java.awt.Color(51, 51, 255));
+
+        lblTitle.setFont(new java.awt.Font("Centaur", 0, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(51, 51, 255));
+        lblTitle.setText("Patient Diagnosis");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -95,12 +124,9 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(116, 116, 116)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,23 +139,32 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
                                     .addComponent(txtBloodPressure)
                                     .addComponent(txtPatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
                                 .addGap(123, 123, 123)
-                                .addComponent(btnAddVitalSigns)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(btnAddVitalSigns))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 198, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(97, 97, 97)
                         .addComponent(btnAddVitalSigns))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPatientName)
                             .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -182,6 +217,7 @@ public class ViewPatientsForDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblBloodPressure;
     private javax.swing.JLabel lblPatientName;
     private javax.swing.JLabel lblTemperature;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblViewPatients;
     private javax.swing.JTextField txtBloodPressure;
     private javax.swing.JTextField txtPatientName;

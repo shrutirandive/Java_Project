@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import model.HospitalAdmin;
 import model.Person;
@@ -95,12 +96,26 @@ public class LoginJPanel extends javax.swing.JPanel {
         jPasswordField1 = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(900, 900));
 
+        lblUsername.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(51, 51, 255));
         lblUsername.setText("USERNAME");
 
+        txtUsername.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(51, 51, 255));
+
+        lblPassword.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(51, 51, 255));
         lblPassword.setText("PASSWORD");
 
+        jPasswordField1.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(51, 51, 255));
+
+        btnLogin.setBackground(new java.awt.Color(155, 211, 248));
+        btnLogin.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/doctor-hospital-icon.png"))); // NOI18N
         btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,23 +128,20 @@ public class LoginJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(261, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPassword))
-                .addGap(94, 94, 94)
+                .addContainerGap(260, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                     .addComponent(txtUsername))
                 .addGap(283, 283, 283))
             .addGroup(layout.createSequentialGroup()
-                .addGap(334, 334, 334)
-                .addComponent(btnLogin)
+                .addGap(373, 373, 373)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblPassword, lblUsername});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -143,7 +155,7 @@ public class LoginJPanel extends javax.swing.JPanel {
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addComponent(btnLogin)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addContainerGap(644, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPasswordField1, lblPassword, lblUsername, txtUsername});
@@ -156,10 +168,13 @@ public class LoginJPanel extends javax.swing.JPanel {
         
         String username = txtUsername.getText();
         String password = jPasswordField1.getText();
-
-        System.out.println("====== LOGIN PAGE ==========");
-        System.out.println("username- "+username);
-        System.out.println("password- "+password);
+        
+        System.out.println("====== LOGIN PAGE =========="+username+"===="+password);
+        
+//        if (username.equals("") || password.equals("")){
+//            JOptionPane.showMessageDialog(null, "Please enter Username and Password");
+//            return;   
+//        }
 
         for(Person person: Person.getPersonDirectory()){
             if((person.getPassword().equals(password))&&person.getUserName().equals(username)){
@@ -198,30 +213,13 @@ public class LoginJPanel extends javax.swing.JPanel {
                     patient.setVisible(true);
                 }
                 else{
-                    JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+                JOptionPane.showMessageDialog(this, "Invalid Username or Password");
                 }
             }
 //            else{
 //                JOptionPane.showMessageDialog(this, "Invalid Username or Password");
 //            }
     }
-        
-//        if (username.equals("hospitalAdmin") && password.equals("1234")){
-//            System.out.println("== Username and Password Matches ==");
-//            HospitalAdminJFrame hospAdmin = new HospitalAdminJFrame();
-//            hospAdmin.setVisible(true);
-//        }
-//        else if (username.equals("communityAdmin") && password.equals("12345")){
-//            System.out.println("== Username and Password Matches ==");
-//            CommunityAdminJFrame communityAdmin = new CommunityAdminJFrame();
-//            communityAdmin.setVisible(true);
-//        }
-//        else if (username.equals("systemAdmin") && password.equals("123456")){
-//            System.out.println("== Username and Password Matches ==");
-//            SystemAdminJFrame systemAdmin = new SystemAdminJFrame();
-//            systemAdmin.setVisible(true);
-//        }
-
     }//GEN-LAST:event_btnLoginActionPerformed
 
 
@@ -232,6 +230,7 @@ public class LoginJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblUsername;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+    
     
 }
 

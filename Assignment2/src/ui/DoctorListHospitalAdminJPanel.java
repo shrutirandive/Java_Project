@@ -39,6 +39,10 @@ public class DoctorListHospitalAdminJPanel extends javax.swing.JPanel {
         tblDoctor = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        tblDoctor.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        tblDoctor.setForeground(new java.awt.Color(51, 51, 255));
         tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -65,6 +69,8 @@ public class DoctorListHospitalAdminJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDoctor);
 
+        jLabel1.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("Add Doctors in Hospital");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -86,7 +92,7 @@ public class DoctorListHospitalAdminJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)

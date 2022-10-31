@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.util.UUID;
 import model.Person;
 
 /**
@@ -16,10 +17,12 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     Person person = new Person();
+    
     public MainJFrame() {
         initComponents();
+        createSystemAdmin();
     }
- 
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,9 +41,16 @@ public class MainJFrame extends javax.swing.JFrame {
         btnHospitalAdmin = new javax.swing.JButton();
         btnSystemAdmin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        splitPane.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnPatient.setBackground(new java.awt.Color(155, 211, 248));
+        btnPatient.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnPatient.setText("Patient");
         btnPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +58,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDoctor.setBackground(new java.awt.Color(155, 211, 248));
+        btnDoctor.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnDoctor.setText("Doctor");
         btnDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +67,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCommunityAdmin.setBackground(new java.awt.Color(155, 211, 248));
+        btnCommunityAdmin.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnCommunityAdmin.setText("Community Admin");
         btnCommunityAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +76,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnHospitalAdmin.setBackground(new java.awt.Color(155, 211, 248));
+        btnHospitalAdmin.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnHospitalAdmin.setText("Hospital Admin");
         btnHospitalAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +85,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnSystemAdmin.setBackground(new java.awt.Color(155, 211, 248));
+        btnSystemAdmin.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnSystemAdmin.setText("System Admin");
         btnSystemAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,20 +124,31 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(btnCommunityAdmin)
                 .addGap(55, 55, 55)
                 .addComponent(btnSystemAdmin)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/What-is-the-Hospital-Management-System.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 548, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(jPanel2);
@@ -146,8 +175,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        person.addNewPerson("systemAdmin", "systemAdmin", "system admin", "System Admin", 20, "Female", "881","Huntington Ave", "Boston", "NoPhysicianType", "NoHospitalName");
-        
         LoginJPanel login = new LoginJPanel();
         splitPane.setRightComponent(login);
     }//GEN-LAST:event_btnSystemAdminActionPerformed
@@ -212,8 +239,14 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnHospitalAdmin;
     private javax.swing.JButton btnPatient;
     private javax.swing.JButton btnSystemAdmin;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
+private void createSystemAdmin(){
+    String id = UUID.randomUUID().toString();
+    person.addNewPerson(id,"systemAdmin", "systemAdmin", "system admin", "System Admin", 20, "Female", "881","Huntington Ave", "Boston", "NoPhysicianType", "NoHospitalName");
+
+    }
 }

@@ -30,16 +30,15 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnHospitalAdminProfile = new javax.swing.JButton();
         btnAddDoctors = new javax.swing.JButton();
         btnDoctorList = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnHospitalAdminProfile.setText("Profile");
-
+        btnAddDoctors.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         btnAddDoctors.setText("Doctors in Hospital");
         btnAddDoctors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,6 +46,7 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDoctorList.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         btnDoctorList.setText("Doctor List");
         btnDoctorList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +54,7 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,11 +73,12 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnHospitalAdminProfile)
-                    .addComponent(btnBack))
+                .addComponent(btnBack)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddDoctors, btnBack, btnDoctorList});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -84,24 +86,30 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
                 .addComponent(btnDoctorList)
                 .addGap(36, 36, 36)
                 .addComponent(btnAddDoctors)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
-                .addComponent(btnHospitalAdminProfile)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(30, 30, 30))
         );
 
         splitPane.setLeftComponent(jPanel1);
 
+        lblTitle.setFont(new java.awt.Font("Centaur", 0, 24)); // NOI18N
+        lblTitle.setText("Hospital Admin");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 752, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(374, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lblTitle)
+                .addGap(0, 460, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(jPanel2);
@@ -112,7 +120,7 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(splitPane)
+                .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -185,9 +193,9 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAddDoctors;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDoctorList;
-    private javax.swing.JButton btnHospitalAdminProfile;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

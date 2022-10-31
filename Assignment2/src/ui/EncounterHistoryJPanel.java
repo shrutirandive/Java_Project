@@ -36,6 +36,12 @@ public class EncounterHistoryJPanel extends javax.swing.JPanel {
         tblEncouterHistory = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        tblEncouterHistory.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        tblEncouterHistory.setForeground(new java.awt.Color(51, 51, 255));
         tblEncouterHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -57,6 +63,8 @@ public class EncounterHistoryJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEncouterHistory);
 
+        jLabel1.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("Encounter History");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -69,7 +77,7 @@ public class EncounterHistoryJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,7 +87,7 @@ public class EncounterHistoryJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

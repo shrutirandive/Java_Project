@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.util.UUID;
 import javax.swing.JOptionPane;
 import model.CommunityAdmin;
 import static model.CommunityAdmin.communityDirectory;
@@ -46,19 +47,45 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         lblCommunity = new javax.swing.JLabel();
         txtCommunity = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 500));
 
+        lblName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(51, 51, 255));
         lblName.setText("NAME");
 
+        txtName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(51, 51, 255));
+
+        lblGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(51, 51, 255));
         lblGender.setText("GENDER");
 
+        comboBoxGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        comboBoxGender.setForeground(new java.awt.Color(51, 51, 255));
         comboBoxGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
 
+        lblHouse.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblHouse.setForeground(new java.awt.Color(51, 51, 255));
         lblHouse.setText("HOUSE");
 
+        txtHouse.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtHouse.setForeground(new java.awt.Color(51, 51, 255));
+
+        lblCity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblCity.setForeground(new java.awt.Color(51, 51, 255));
         lblCity.setText("CITY");
 
+        txtCity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtCity.setForeground(new java.awt.Color(51, 51, 255));
+
+        btnSave.setBackground(new java.awt.Color(155, 211, 248));
+        btnSave.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-1-icon.png"))); // NOI18N
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +93,16 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCommunity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblCommunity.setForeground(new java.awt.Color(51, 51, 255));
         lblCommunity.setText("COMMUNITY");
+
+        txtCommunity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtCommunity.setForeground(new java.awt.Color(51, 51, 255));
+
+        jLabel1.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel1.setText("Create Community Admin");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,7 +111,7 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(95, 95, 95)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(comboBoxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -97,14 +133,19 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
                                         .addComponent(txtHouse, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                                         .addComponent(txtCommunity))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(518, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(525, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName))
@@ -124,9 +165,9 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(50, 50, 50)
                 .addComponent(btnSave)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -159,14 +200,19 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
         String house = txtHouse.getText();
         String community = txtCommunity.getText();
         String city = txtCity.getText();
+        if (name.equals("") || gender.equals("") || house.equals("") ||
+                community.equals("") || city.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter all the fields");
+            return;   
+        }
         
         communityAd.addNewCommunityAdmin(name, gender, house, community, city);
-       
+        String id = UUID.randomUUID().toString();
         String username = name;
         String password = name;
         String usertype = "community admin";
-        System.out.println("=======CreateCommunityAdminJPanel================="+username+"=="+password+"=="+usertype);
-        person.addNewPerson(username, password, usertype, name, ABORT, gender, house, community, city, "NoPhysicianType", "NoHospitalName");
+        System.out.println("=======CreateCommunityAdminJPanel==================="+username+"=="+password+"=="+usertype);
+        person.addNewPerson(id,username, password, usertype, name, ABORT, gender, house, community, city, "NoPhysicianType", "NoHospitalName");
         for(Person per: Person.getPersonDirectory()){
             System.out.println(per.getName()+"       "+per.getPassword()+"              "+per.getCity());
         }
@@ -179,6 +225,7 @@ public class CreateCommunityAdminJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox<String> comboBoxGender;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblCommunity;

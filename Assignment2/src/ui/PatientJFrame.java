@@ -34,25 +34,23 @@ public class PatientJFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnProfile = new javax.swing.JButton();
         btnDoctorList = new javax.swing.JButton();
         btnDoctorBooked = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnEncounterHistory = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        splitPane.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(200, 371));
 
-        btnProfile.setText("Profile");
-        btnProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProfileActionPerformed(evt);
-            }
-        });
-
+        btnDoctorList.setBackground(new java.awt.Color(155, 211, 248));
+        btnDoctorList.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnDoctorList.setText("Doctor List");
         btnDoctorList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +58,8 @@ public class PatientJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDoctorBooked.setBackground(new java.awt.Color(155, 211, 248));
+        btnDoctorBooked.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnDoctorBooked.setText("Doctor Booked");
         btnDoctorBooked.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +67,8 @@ public class PatientJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(155, 211, 248));
+        btnBack.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +76,8 @@ public class PatientJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEncounterHistory.setBackground(new java.awt.Color(155, 211, 248));
+        btnEncounterHistory.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
         btnEncounterHistory.setText("Encounter History");
         btnEncounterHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,42 +95,51 @@ public class PatientJFrame extends javax.swing.JFrame {
                     .addComponent(btnDoctorList, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEncounterHistory)
                     .addComponent(btnDoctorBooked, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProfile)
                     .addComponent(btnBack))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnDoctorBooked, btnDoctorList, btnEncounterHistory, btnProfile});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnBack, btnDoctorBooked, btnDoctorList, btnEncounterHistory});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(btnDoctorList)
-                .addGap(40, 40, 40)
+                .addGap(50, 50, 50)
                 .addComponent(btnDoctorBooked)
-                .addGap(34, 34, 34)
+                .addGap(50, 50, 50)
                 .addComponent(btnEncounterHistory)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(btnProfile)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(17, 17, 17))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnDoctorBooked, btnDoctorList, btnEncounterHistory, btnProfile});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBack, btnDoctorBooked, btnDoctorList, btnEncounterHistory});
 
         splitPane.setLeftComponent(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblTitle.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitle.setFont(new java.awt.Font("Centaur", 0, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(51, 51, 255));
+        lblTitle.setText("Patient");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lblTitle)
+                .addGap(0, 343, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(jPanel2);
@@ -170,12 +183,6 @@ public class PatientJFrame extends javax.swing.JFrame {
         PatientJFrame patient = new PatientJFrame();
         patient.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
-        // TODO add your handling code here:
-        PatientProfileJPanel profile = new PatientProfileJPanel();
-        splitPane.setRightComponent(profile);
-    }//GEN-LAST:event_btnProfileActionPerformed
 
     private void btnEncounterHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncounterHistoryActionPerformed
         // TODO add your handling code here:
@@ -223,9 +230,9 @@ public class PatientJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDoctorBooked;
     private javax.swing.JButton btnDoctorList;
     private javax.swing.JButton btnEncounterHistory;
-    private javax.swing.JButton btnProfile;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

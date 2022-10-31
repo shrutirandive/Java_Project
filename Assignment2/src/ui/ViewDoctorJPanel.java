@@ -4,10 +4,12 @@
  */
 package ui;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static model.CommunityAdmin.communityDirectory;
 import model.Doctor;
+import static model.HospitalAdmin.hospitalDirectory;
 import model.Person;
 
 /**
@@ -25,6 +27,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         initComponents();
         
         populateTable();
+        populateTableCommunity();
+        populateTableHosp();
     }
 
     /**
@@ -37,14 +41,11 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblDoctor = new javax.swing.JTable();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
         lblHouse = new javax.swing.JLabel();
         lblCommunity = new javax.swing.JLabel();
-        txtCommunity = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         comboGender = new javax.swing.JComboBox<>();
@@ -52,8 +53,156 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         txtPhysicianType = new javax.swing.JTextField();
         txtHouse = new javax.swing.JTextField();
         lblHospitalName = new javax.swing.JLabel();
-        txtHospitalName = new javax.swing.JTextField();
+        comboBoxCommunity = new javax.swing.JComboBox<>();
+        comboBoxHospName = new javax.swing.JComboBox<>();
+        lblTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDoctor = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(51, 51, 255));
+        lblName.setText("NAME");
+
+        txtName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(51, 51, 255));
+
+        lblGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(51, 51, 255));
+        lblGender.setText("GENDER");
+
+        lblHouse.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblHouse.setForeground(new java.awt.Color(51, 51, 255));
+        lblHouse.setText("HOUSE");
+
+        lblCommunity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblCommunity.setForeground(new java.awt.Color(51, 51, 255));
+        lblCommunity.setText("COMMUNITY");
+
+        btnUpdate.setBackground(new java.awt.Color(155, 211, 248));
+        btnUpdate.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit-icon.png"))); // NOI18N
+        btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setBackground(new java.awt.Color(155, 211, 248));
+        btnDelete.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Close-2-icon.png"))); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        comboGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        comboGender.setForeground(new java.awt.Color(51, 51, 255));
+        comboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
+
+        lblPhysicianType.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblPhysicianType.setForeground(new java.awt.Color(51, 51, 255));
+        lblPhysicianType.setText("PHYSICIAN TYPE");
+
+        txtPhysicianType.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtPhysicianType.setForeground(new java.awt.Color(51, 51, 255));
+
+        txtHouse.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtHouse.setForeground(new java.awt.Color(51, 51, 255));
+
+        lblHospitalName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblHospitalName.setForeground(new java.awt.Color(51, 51, 255));
+        lblHospitalName.setText("HOSPITAL NAME");
+
+        comboBoxCommunity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        comboBoxCommunity.setForeground(new java.awt.Color(51, 51, 255));
+        comboBoxCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        comboBoxHospName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        comboBoxHospName.setForeground(new java.awt.Color(51, 51, 255));
+        comboBoxHospName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGender)
+                    .addComponent(lblCommunity)
+                    .addComponent(lblHouse)
+                    .addComponent(lblPhysicianType)
+                    .addComponent(lblHospitalName))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(comboBoxHospName, 0, 106, Short.MAX_VALUE)
+                        .addGap(756, 756, 756))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtPhysicianType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(124, 124, 124)
+                                .addComponent(btnUpdate)
+                                .addGap(44, 44, 44)
+                                .addComponent(btnDelete))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(comboBoxCommunity, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtHouse, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboGender, txtHouse, txtName, txtPhysicianType});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblName)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGender))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPhysicianType)
+                    .addComponent(txtPhysicianType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHouse)
+                    .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCommunity)
+                    .addComponent(comboBoxCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxHospName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblHospitalName)))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboGender, txtHouse, txtName, txtPhysicianType});
+
+        lblTitle.setFont(new java.awt.Font("Centaur", 0, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(51, 51, 255));
+        lblTitle.setText("Doctors");
+
+        tblDoctor.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        tblDoctor.setForeground(new java.awt.Color(51, 51, 255));
         tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -80,129 +229,31 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDoctor);
 
-        lblName.setText("NAME");
-
-        lblGender.setText("GENDER");
-
-        lblHouse.setText("HOUSE");
-
-        lblCommunity.setText("COMMUNITY");
-
-        btnUpdate.setText("Update");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
-
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
-        comboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
-
-        lblPhysicianType.setText("PHYSICIAN TYPE");
-
-        lblHospitalName.setText("HOSPITAL NAME");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblGender)
-                    .addComponent(lblCommunity)
-                    .addComponent(lblHospitalName)
-                    .addComponent(lblHouse)
-                    .addComponent(lblPhysicianType))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(127, 127, 127)
-                                .addComponent(btnUpdate)
-                                .addGap(48, 48, 48)
-                                .addComponent(btnDelete))
-                            .addComponent(txtPhysicianType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(417, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboGender, txtCommunity, txtHospitalName, txtHouse, txtName, txtPhysicianType});
-
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblName)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdate)
-                            .addComponent(btnDelete))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblGender))
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPhysicianType)
-                            .addComponent(txtPhysicianType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHouse)
-                            .addComponent(txtHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCommunity))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHospitalName)
-                    .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {comboGender, txtCommunity, txtHospitalName, txtHouse, txtName, txtPhysicianType});
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 433, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 14, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 13, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(221, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -222,8 +273,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
         comboGender.setSelectedItem(selectedDoctor.getGender());
         txtPhysicianType.setText(selectedDoctor.getPhysicianType());
         txtHouse.setText(selectedDoctor.getHouse());
-        txtCommunity.setText(selectedDoctor.getCommunity());
-        txtHospitalName.setText(selectedDoctor.getHospitalName());
+        comboBoxCommunity.setSelectedItem(selectedDoctor.getCommunity());
+        comboBoxHospName.setSelectedItem(selectedDoctor.getHospitalName());
         
     }//GEN-LAST:event_tblDoctorMouseClicked
 
@@ -238,9 +289,14 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             String gender = (String) comboGender.getSelectedItem();
             String physicianType = txtPhysicianType.getText();
             String house = txtHouse.getText();
-            String hospitalName = txtHospitalName.getText();
-            String community = txtCommunity.getText();
-
+            String hospitalName = (String) comboBoxHospName.getSelectedItem();
+            String community = (String) comboBoxCommunity.getSelectedItem();
+            
+            if (name.equals("") || gender.equals("") || physicianType.equals("")|| 
+                    house.equals("") || community.equals("") || hospitalName.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter all the fields");
+            return;   
+        }
             Doctor updateDoc = new Doctor();            
             //-- set updated value on the table row
             updateDoc.setName(name);
@@ -279,10 +335,17 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             return;
         }
         DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
+        //DELETE DOCTOR DATA IN DOCTOR DIRECTORY
         Doctor selectedDoctor = (Doctor) model.getValueAt(selectedRowIndex, 0);
-
         doc.deleteDoctor(selectedDoctor);
-        JOptionPane.showMessageDialog(this,"doctor deleted");
+        
+        communityDirectory.remove(selectedDoctor.getCommunity());
+        
+        //DELETE DOCTOR DATA IN PERSON DIRECTORY
+        Person selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
+        person.deletePerson(selectedPerson);
+        
+        JOptionPane.showMessageDialog(this,"Doctor Deleted");
 
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -291,6 +354,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> comboBoxCommunity;
+    private javax.swing.JComboBox<String> comboBoxHospName;
     private javax.swing.JComboBox<String> comboGender;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -300,9 +365,8 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblHouse;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhysicianType;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblDoctor;
-    private javax.swing.JTextField txtCommunity;
-    private javax.swing.JTextField txtHospitalName;
     private javax.swing.JTextField txtHouse;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhysicianType;
@@ -323,6 +387,16 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
         
+    }
+private void populateTableCommunity() {
+        
+         comboBoxCommunity.setModel(new DefaultComboBoxModel<String>(communityDirectory.toArray(new String[0])));
+
+    }
+private void populateTableHosp() {
+        
+         comboBoxHospName.setModel(new DefaultComboBoxModel<String>(hospitalDirectory.toArray(new String[0])));
+
     }
 
 }

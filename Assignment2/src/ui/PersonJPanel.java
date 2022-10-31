@@ -35,6 +35,10 @@ public class PersonJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPerson = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        tblPerson.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        tblPerson.setForeground(new java.awt.Color(51, 51, 255));
         tblPerson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -65,8 +69,8 @@ public class PersonJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -81,8 +85,8 @@ public class PersonJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(Person per: Person.getPersonDirectory()){
-            if(per.getCity().equals(loginPanel.getCommunityAdminCommunity())){
-//                System.out.println("Patient City= "+loginPanel.getPatientCity());
+            if(per.getCommunity().equals(loginPanel.getCommunityAdminCommunity())){
+                System.out.println("Community admin's Community= "+loginPanel.getCommunityAdminCommunity());
             Object[] row = new Object[5];
             row[0] = per;
             row[1] = per.getName();

@@ -6,6 +6,7 @@ package ui;
 
 import static java.awt.image.ImageObserver.ABORT;
 import java.util.List;
+import java.util.UUID;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -67,22 +68,44 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
         lblCommunity = new javax.swing.JLabel();
         comboBoxCommunity = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(51, 51, 255));
         lblName.setText("NAME");
 
+        lblGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(51, 51, 255));
         lblGender.setText("GENDER");
 
+        lblHospitalName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblHospitalName.setForeground(new java.awt.Color(51, 51, 255));
         lblHospitalName.setText("HOSPITAL NAME");
 
+        lblCity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblCity.setForeground(new java.awt.Color(51, 51, 255));
         lblCity.setText("CITY");
 
-        lblTitle.setText("create hospital admin");
+        lblTitle.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(51, 51, 255));
+        lblTitle.setText("Create Hospital Admin");
 
+        txtName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(51, 51, 255));
+
+        txtHospitalName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtHospitalName.setForeground(new java.awt.Color(51, 51, 255));
         txtHospitalName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtHospitalNameActionPerformed(evt);
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(155, 211, 248));
+        btnSave.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-1-icon.png"))); // NOI18N
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,10 +113,19 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        comboGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        comboGender.setForeground(new java.awt.Color(51, 51, 255));
         comboGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
 
+        txtCity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtCity.setForeground(new java.awt.Color(51, 51, 255));
+
+        lblCommunity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblCommunity.setForeground(new java.awt.Color(51, 51, 255));
         lblCommunity.setText("COMMUNITY");
 
+        comboBoxCommunity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        comboBoxCommunity.setForeground(new java.awt.Color(51, 51, 255));
         comboBoxCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item1", "item1" }));
         comboBoxCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +140,7 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(302, 302, 302)
+                        .addGap(142, 142, 142)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,14 +158,14 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
                                     .addComponent(txtHospitalName)
                                     .addComponent(comboGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtCity)
-                                    .addComponent(comboBoxCommunity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(comboBoxCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
+                        .addContainerGap()
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(409, 409, 409)
+                        .addGap(236, 236, 236)
                         .addComponent(btnSave)))
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(477, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblCity, lblGender, lblHospitalName, lblName});
@@ -143,9 +175,9 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
                 .addComponent(lblTitle)
-                .addGap(78, 78, 78)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -167,7 +199,7 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(btnSave)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCity, lblGender, lblHospitalName, lblName});
@@ -195,14 +227,20 @@ public class CreateHospitalAdminJPanel extends javax.swing.JPanel {
         String community = (String) comboBoxCommunity.getSelectedItem();
         String city = txtCity.getText();
 //        String city = lblCaCity.getText();
+        if (name.equals("") || gender.equals("") || hospitalName.equals("") ||
+                community.equals("") || city.equals("")){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields");
+            return;   
+        }
 
         hospitalAdmin.addNewHospitalAdmin(name, gender, hospitalName, community, city);
         
+        String id = UUID.randomUUID().toString();
         String username = name;
         String password = name;
         String usertype = "hospital admin";
         System.out.println("=======CreateHospitalAdminJPanel================="+username+"=="+password+"=="+usertype);
-        personDirectory.add(new Person(username, password, usertype, name, 0, gender, "NoHouse", community, city, "NoPhysicianType", hospitalName));
+        personDirectory.add(new Person(id, username, password, usertype, name, 0, gender, "NoHouse", community, city, "NoPhysicianType", hospitalName));
         for(Person per: Person.getPersonDirectory()){
             System.out.println(per.getName()+per.getPassword()+per.getCity());
         }

@@ -34,6 +34,10 @@ public class DoctorBookedJPanel extends javax.swing.JPanel {
         tblDoctorBooked = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        tblDoctorBooked.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        tblDoctorBooked.setForeground(new java.awt.Color(51, 51, 255));
         tblDoctorBooked.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -42,7 +46,7 @@ public class DoctorBookedJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Doctor name", "Gender", "Physician Type", "House", "City", "Hospital Name"
+                "Doctor name", "Gender", "Physician Type", "House", "Community", "Hospital Name"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -55,7 +59,9 @@ public class DoctorBookedJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDoctorBooked);
 
-        jLabel1.setText("Encounter History");
+        jLabel1.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel1.setText("Doctor Appointment Booking");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -68,14 +74,14 @@ public class DoctorBookedJPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -99,7 +105,7 @@ public class DoctorBookedJPanel extends javax.swing.JPanel {
             row[1] = doc.getGender();
             row[2] = doc.getPhysicianType();
             row[3] = doc.getHouse();
-            row[4] = doc.getCity();
+            row[4] = doc.getCommunity();
             row[5] = doc.getHospitalName();
 
             model.addRow(row);

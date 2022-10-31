@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.util.UUID;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import static model.CommunityAdmin.communityDirectory;
@@ -55,34 +56,49 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         comboBoxHospName = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         comboBoxCommunity = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         lblName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(51, 51, 255));
         lblName.setText("NAME");
 
         txtName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(51, 51, 255));
 
         lblGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblGender.setForeground(new java.awt.Color(51, 51, 255));
         lblGender.setText("GENDER");
 
         comboBoxGender.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        comboBoxGender.setForeground(new java.awt.Color(51, 51, 255));
         comboBoxGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male" }));
 
         lblHouse.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblHouse.setForeground(new java.awt.Color(51, 51, 255));
         lblHouse.setText("HOUSE");
 
         txtHouse.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtHouse.setForeground(new java.awt.Color(51, 51, 255));
 
         lblCity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblCity.setForeground(new java.awt.Color(51, 51, 255));
         lblCity.setText("CITY");
 
         txtCity.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtCity.setForeground(new java.awt.Color(51, 51, 255));
 
         lblPhysicianType.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblPhysicianType.setForeground(new java.awt.Color(51, 51, 255));
         lblPhysicianType.setText("PHYSICIAN TYPE");
 
         txtPhysicianType.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        txtPhysicianType.setForeground(new java.awt.Color(51, 51, 255));
 
+        btnSave.setBackground(new java.awt.Color(155, 211, 248));
         btnSave.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add-1-icon.png"))); // NOI18N
         btnSave.setText("SAVE");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,13 +107,21 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         });
 
         lblHospitalName.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
+        lblHospitalName.setForeground(new java.awt.Color(51, 51, 255));
         lblHospitalName.setText("HOSPITAL NAME");
 
+        comboBoxHospName.setForeground(new java.awt.Color(51, 51, 255));
         comboBoxHospName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("COMMUNITY");
 
+        comboBoxCommunity.setForeground(new java.awt.Color(51, 51, 255));
         comboBoxCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel2.setFont(new java.awt.Font("Centaur", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setText("Create Doctor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -106,7 +130,10 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(301, 301, 301)
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblPhysicianType)
@@ -127,16 +154,16 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                                             .addComponent(jLabel1))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-                                            .addComponent(comboBoxHospName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(comboBoxCommunity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboBoxHospName, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(comboBoxCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPhysicianType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(comboBoxGender, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(397, 397, 397)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(289, Short.MAX_VALUE))
+                        .addGap(177, 177, 177)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(495, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {comboBoxGender, txtPhysicianType});
@@ -146,7 +173,9 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName))
@@ -174,9 +203,9 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHospitalName)
                     .addComponent(comboBoxHospName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(42, 42, 42)
                 .addComponent(btnSave)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,15 +219,21 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
         String community = (String) comboBoxCommunity.getSelectedItem();
         String city = txtCity.getText();
         String hospitalName = (String) comboBoxHospName.getSelectedItem();
-
+        if (name.equals("") && gender.equals("") && physicianType.equals("") && 
+                house.equals("") && hospitalName.equals("") &&
+                community.equals("") && city.equals("")){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields");
+            return;   
+        }
         
         doctor.addNewDoctors(name, gender, physicianType, house, community, city, hospitalName);
         
+        String id = UUID.randomUUID().toString();
         String username = name;
         String password = name;
         String usertype = "doctor";
         System.out.println("=======CreateDoctorJPanel================="+username+"=="+password+"=="+usertype);
-        person.addNewPerson(username, password, usertype, name, ABORT, gender, house, community, city, physicianType, hospitalName);
+        person.addNewPerson(id, username, password, usertype, name, ABORT, gender, house, community, city, physicianType, hospitalName);
         for(Person per: Person.getPersonDirectory()){
             System.out.println(per.getName()+"       "+per.getPassword()+"              "+per.getCity());
         }
@@ -213,6 +248,7 @@ public class CreateDoctorJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboBoxGender;
     private javax.swing.JComboBox<String> comboBoxHospName;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblHospitalName;
