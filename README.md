@@ -1,10 +1,6 @@
 # Hospital management system
 This application is used by various users like Patients, Doctors, Hospital admins, Community Admins, and System admins. Various user types perform different tasks like-System Admin can create community admin in a city. Each Community will have a community admin who can view patients, doctors, and admins living in their community. They can add Hospital admins in their community. System admin can create hospital admin as well where the hospital admin can View doctors and add them to its hospital. The system creates Patients and Doctors. Patients can view all the doctors under various hospitals in their community and book appointment for them which. Whereas the Doctors can view these patients and add various vital signs like temperature, blood pressure, weight, and other descriptions. These vital signs are stored as Encounter and can be viewed by the Patients who have booked an appointment for that doctor in the Encounter History.
 
-### Sequence Diagram
-![image](https://user-images.githubusercontent.com/54211989/202823546-4763ab8f-73f6-45a4-8b7b-4bcca83bad6d.png)
-
-
 #### System Admin
 
 ![image](https://user-images.githubusercontent.com/54211989/202822763-5677dba9-b04e-4053-bf03-ef15598ae804.png)
@@ -31,3 +27,5 @@ This application is used by various users like Patients, Doctors, Hospital admin
 
 ![image](https://user-images.githubusercontent.com/54211989/202823425-8cd92069-3c42-4f53-9897-1f850be840a1.png)
 
+### Sequence Diagram
+![system sequence diagram drawio](https://user-images.githubusercontent.com/54211989/202876150-2a2ecad1-2320-4102-94b7-1a079b5055dd.png)
