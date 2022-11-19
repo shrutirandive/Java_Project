@@ -38,6 +38,11 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        splitPane.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnAddDoctors.setBackground(new java.awt.Color(155, 211, 248));
         btnAddDoctors.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         btnAddDoctors.setText("Doctors in Hospital");
         btnAddDoctors.addActionListener(new java.awt.event.ActionListener() {
@@ -46,6 +51,7 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnDoctorList.setBackground(new java.awt.Color(155, 211, 248));
         btnDoctorList.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         btnDoctorList.setText("Doctor List");
         btnDoctorList.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +60,7 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setBackground(new java.awt.Color(155, 211, 248));
         btnBack.setFont(new java.awt.Font("Centaur", 0, 14)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +100,10 @@ public class HospitalAdminJFrame extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         lblTitle.setFont(new java.awt.Font("Centaur", 0, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(51, 51, 255));
         lblTitle.setText("Hospital Admin");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

@@ -246,6 +246,17 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
             updateCommunityAdmin.setCommunity(community);
             
             ca.updateCommunityAdmin(updateCommunityAdmin,selectedRowIndex);
+            
+             //UPDATE CommunityAdmin DATA IN PERSON DIRECTORY
+            Person updatePerson = new Person();
+
+            //-- set updated value on the table row
+            updatePerson.setName(name);
+            updatePerson.setGender(gender);
+            updatePerson.setHouse(house);
+            updatePerson.setCommunity(community);
+            person.updatePerson(updatePerson, selectedRowIndex);
+            
             communityDirectory.set(selectedRowIndex,community);
             populateTable();
 
@@ -264,11 +275,12 @@ public class ViewCommunityAdminJPanel extends javax.swing.JPanel {
         CommunityAdmin selectedCommunityAdmin = (CommunityAdmin) model.getValueAt(selectedRowIndex, 0);
         ca.deleteCommunityAdmin(selectedCommunityAdmin);
         
-        communityDirectory.remove(selectedCommunityAdmin.getCommunity());
-        
+          //DELETE CommunityAdmin DATA IN PERSON DIRECTORY
         Person selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
         person.deletePerson(selectedPerson);
         
+        communityDirectory.remove(selectedCommunityAdmin.getCommunity());
+                
         JOptionPane.showMessageDialog(this,"Community admin deleted");
 
         populateTable();

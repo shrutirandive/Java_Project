@@ -270,7 +270,7 @@ public class ViewPatientJPanel extends javax.swing.JPanel {
             updatePerson.setAge(age);
             updatePerson.setHouse(house);
             updatePerson.setCommunity(community);
-            person.updatePerson(person, selectedRowIndex);
+            person.updatePerson(updatePerson, selectedRowIndex);
             
             communityDirectory.set(selectedRowIndex,community);
             

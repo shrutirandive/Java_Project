@@ -171,12 +171,12 @@ public class LoginJPanel extends javax.swing.JPanel {
         
         System.out.println("====== LOGIN PAGE =========="+username+"===="+password);
         
-//        if (username.equals("") || password.equals("")){
-//            JOptionPane.showMessageDialog(null, "Please enter Username and Password");
-//            return;   
-//        }
+        if (username.equals("") || password.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter Username and Password");
+            return;   
+        }
 
-        for(Person person: Person.getPersonDirectory()){
+        for(Person person: Person.personDirectory){
             if((person.getPassword().equals(password))&&person.getUserName().equals(username)){
                 System.out.println("== Username and Password Matches for== "+person.getUserType());
                 

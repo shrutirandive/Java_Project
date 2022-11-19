@@ -318,7 +318,7 @@ public class ViewDoctorJPanel extends javax.swing.JPanel {
             updatePerson.setHouse(house);
             updatePerson.setHospitalName(hospitalName);
             updatePerson.setCommunity(community);
-            person.updatePerson(person, selectedRowIndex);
+            person.updatePerson(updatePerson, selectedRowIndex);
             
             communityDirectory.set(selectedRowIndex,community);
             populateTable();

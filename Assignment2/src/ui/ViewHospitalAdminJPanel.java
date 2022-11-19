@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import static model.CommunityAdmin.communityDirectory;
 import model.HospitalAdmin;
 import static model.HospitalAdmin.hospitalDirectory;
+import model.Person;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewHospitalAdminJPanel
      */
+    Person person = new Person();
     HospitalAdmin ha = new HospitalAdmin();
     public ViewHospitalAdminJPanel() {
         initComponents();
@@ -250,6 +252,16 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
             updateHospitalAdmin.setCommunity(community);
             ha.updateHospitalAdmin(updateHospitalAdmin,selectedRowIndex);
             
+            //UPDATE HospitalAdmin DATA IN PERSON DIRECTORY
+            Person updatePerson = new Person();
+
+            //-- set updated value on the table row
+            updatePerson.setName(name);
+            updatePerson.setGender(gender);
+            updatePerson.setHospitalName(hospitalName);
+            updatePerson.setCommunity(community);
+            person.updatePerson(updatePerson, selectedRowIndex);
+            
             communityDirectory.set(selectedRowIndex,community);
             hospitalDirectory.set(selectedRowIndex, hospitalName);
             populateTable();
@@ -269,6 +281,11 @@ public class ViewHospitalAdminJPanel extends javax.swing.JPanel {
         HospitalAdmin selectedHospitalAdmin = (HospitalAdmin) model.getValueAt(selectedRowIndex, 0);
         
         ha.deleteHospitalAdmin(selectedHospitalAdmin);
+        
+        //DELETE HospitalAdmin FROM PERSON DIRECTORY
+        Person selectedPerson = (Person) model.getValueAt(selectedRowIndex, 0);
+        person.deletePerson(selectedPerson);
+        
         communityDirectory.remove(selectedHospitalAdmin.getCommunity());
         hospitalDirectory.remove(selectedHospitalAdmin.getHospitalName());
         JOptionPane.showMessageDialog(this,"Hospital admin deleted");
