@@ -1,4 +1,12 @@
-# Hospital management system
+# Java Projects
+### Hotel Management System
+![image](https://user-images.githubusercontent.com/54211989/208321372-c081b5c1-62dc-4c69-989c-f690f6264941.png)
+![image](https://user-images.githubusercontent.com/54211989/208321543-52686760-3f78-46eb-882f-0365d29146ff.png)
+![image](https://user-images.githubusercontent.com/54211989/208321567-b45629e9-4177-417c-99d2-04397a73d610.png)
+#### Real Time Email Registeration
+![image](https://user-images.githubusercontent.com/54211989/208321591-a0556971-0a93-4179-96ac-d2fe0180f173.png)
+
+### Hospital management system
 This application is used by various users like Patients, Doctors, Hospital admins, Community Admins, and System admins. Various user types perform different tasks like-System Admin can create community admin in a city. Each Community will have a community admin who can view patients, doctors, and admins living in their community. They can add Hospital admins in their community. System admin can create hospital admin as well where the hospital admin can View doctors and add them to its hospital. The system creates Patients and Doctors. Patients can view all the doctors under various hospitals in their community and book appointment for them which. Whereas the Doctors can view these patients and add various vital signs like temperature, blood pressure, weight, and other descriptions. These vital signs are stored as Encounter and can be viewed by the Patients who have booked an appointment for that doctor in the Encounter History.
 
 #### System Admin
